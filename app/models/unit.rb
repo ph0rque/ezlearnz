@@ -8,30 +8,7 @@ class Unit < ActiveRecord::Base
   has_many   :users, :through => :user_units
 
   acts_as_list :scope => :parent unless self.parent.nil?
-  
-  # def self.factory(type, params = nil)
-  #   type ||= 'Unit'
-  #   begin
-  #     if (type.constantize.base_class) == Unit
-  #       return type.constantize.new(params)
-  #     end
-  #   rescue
-  #     logger.warn("Failed attempting to create a Unit of type: #{type}")
-  #   end
-  #   return Unit.new(params)
-  # end
-
-  # after_create :determine_author
-  # Create the join table for user and unit, unless it already exists.
-  # def determine_author
-  #   if self.users.empty? 
-  #     if !self.parent.nil?
-  #       user_unit.create(:instructor =>'true') 
-  #     else
-  #       user_unit.create(:user_id => current_user.id, :instructor =>'true')
-  #     end
-  #   end
-  # end
+  # vestigial methods at the bottom of this file
 end
 
 class Subject < Unit
@@ -42,13 +19,7 @@ class Subject < Unit
   end
 end
 
-class Fragment < Unit
-  after_create :populate
-  def populate
-    5.times { |i| Chapter.create(:parent_id => self.id, :title => "Chapter #{i+1}") }
-    FinalExam.create(:unit_id => self.id, :title => "#{self.title} Final Exam")
-  end
-end 
+class Fragment < Unit; end 
 
 class Chapter < Unit
   after_create :populate
@@ -74,3 +45,27 @@ class Lab < Unit
     WritingAssignment.create(:unit_id => self.id, :title => "Assignment: #{self.title} Report")
   end
 end
+
+  # def self.factory(type, params = nil)
+  #   type ||= 'Unit'
+  #   begin
+  #     if (type.constantize.base_class) == Unit
+  #       return type.constantize.new(params)
+  #     end
+  #   rescue
+  #     logger.warn("Failed attempting to create a Unit of type: #{type}")
+  #   end
+  #   return Unit.new(params)
+  # end
+
+  # after_create :determine_author
+  # Create the join table for user and unit, unless it already exists.
+  # def determine_author
+  #   if self.users.empty? 
+  #     if !self.parent.nil?
+  #       user_unit.create(:instructor =>'true') 
+  #     else
+  #       user_unit.create(:user_id => current_user.id, :instructor =>'true')
+  #     end
+  #   end
+  # end
