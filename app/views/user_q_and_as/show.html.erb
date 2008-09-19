@@ -1,0 +1,28 @@
+<p>
+  <b>User q and a set:</b>
+  <%=h @user_q_and_a.user_q_and_a_set_id %>
+</p>
+
+<p>
+  <b>Q and a:</b>
+  <%=h @user_q_and_a.q_and_a_id %>
+</p>
+
+<p>
+  <b>Instructor:</b>
+  <%=h @user_q_and_a.instructor %>
+</p>
+
+<p>
+  <b>Grade:</b>
+  <%=h @user_q_and_a.grade %>
+</p>
+
+<p>
+  <b>Student answer:</b>
+  <%=h @user_q_and_a.student_answer %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_q_and_a_path(@user_q_and_a) %> |
+<%= link_to 'Back', user_q_and_as_path %>

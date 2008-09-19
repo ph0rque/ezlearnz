@@ -1,0 +1,30 @@
+# == Schema Information
+# Schema version: 11
+#
+# Table name: units
+#
+#  id          :integer(11)     not null, primary key
+#  parent_id   :integer(11)     
+#  position    :integer(11)     
+#  unit_type   :string(255)     
+#  title       :string(255)     
+#  description :text            
+#  created_at  :datetime        
+#  updated_at  :datetime        
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  parent_id: 1
+  position: 1
+  unit_type: MyString
+  title: MyString
+  description: MyText
+
+two:
+  parent_id: 1
+  position: 1
+  unit_type: MyString
+  title: MyString
+  description: MyText

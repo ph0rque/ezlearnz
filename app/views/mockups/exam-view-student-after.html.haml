@@ -1,0 +1,72 @@
+#nav_bar
+  .login.float_right
+    = link_to "login"
+    |
+    = link_to "register"
+  .breadcrumbs.float_left
+    .plain.float_right
+      %strong Lesson 1 Quiz Results
+    .plain.float_left
+      %small you are here:
+    .dark.float_left
+      .light.float_left
+        .dark.float_left
+          .light.float_left
+            Home
+          Subject
+        Chapter 1
+      Lesson 1
+%br/
+
+.brightbottomborder.clear_both
+  .score.text_centered.float_right{ :style=>'width:20%;' }
+    %strong Score:
+    80%
+  %h2 Exam Title
+%br/
+
+%ol
+  %li
+    %p
+      %strong Question:
+      What is 1 + 1 ? (Write your answer numerically.)
+    %br/
+    #left_column.text_centered.wrong_answer
+      %strong You answered:
+      3
+    #right_column.text_centered.score
+      %strong Score:
+      0 / 5
+    #middle_column.text_centered.right_answer
+      %strong Correct answer is:
+      2
+    %br/
+    %p
+      %strong Explanation:
+      Do a little experiment: take an apple, and put it in a bag. Take another one, and do the same. Now look into the bag. How many apples do you see? Two.
+    %br/
+  %li
+    %p
+      %strong Question:
+      What, according to the text, were the four main causes of the Civil War in Atlantis? (Write only the letter matching the correct choice.)
+      %ol
+        %li Disease, Famine, War, and Lolcats
+        %li The classic big-endian vs. little-endian question, road rage, overpopulation, and rats
+        %li Boredom with peace, rock music, video game agression, and too little space
+        %li All of the above
+        %li None of the above
+    %br/
+    #left_column.text_centered.right_answer
+      %strong You answered:
+      5
+    #right_column.text_centered.score
+      %strong Score:
+      20 / 20
+    #middle_column.text_centered.right_answer
+      %strong Correct answer is:
+      5
+    %br/
+    %p
+      %strong Explanation:
+      Truth is, no-one knows anything about Atlantis, to to mention whether a Civil War occurred there.
+    %br/

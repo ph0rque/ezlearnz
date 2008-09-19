@@ -1,0 +1,81 @@
+#nav_bar
+  .login.float_right
+    = link_to "login"
+    |
+    = link_to "register"
+  .breadcrumbs.float_left
+    .plain.float_right
+      %strong Lesson 1 Quiz
+    .plain.float_left
+      %small you are here:
+    .dark.float_left
+      .light.float_left
+        .dark.float_left
+          .light.float_left
+            Home
+          Subject
+        Chapter 1
+      Lesson 1
+%br/
+
+.brightbottomborder.clear_both
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'collapse' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')
+      %li{ :title => 'edit exam title' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'edit')
+      %li{ :title => 'new question (and answer)' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'new')
+  %h2 Exam Title
+%br/
+
+.exam.brightbottomborder
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'collapse' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')
+      %li{ :title => 'revision history' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'history')
+      %li{ :title => 'move' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'move') 
+      %li{ :title => 'edit this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'edit'), "/edit-q-and-a-view"
+      %li{ :title => 'delete this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'delete')
+  %h4 Q&A 1 (Worth 5 points)
+%br/
+%p
+  %strong Question:
+  What is 1 + 1 ? (Write your answer numerically.)
+%p
+  %strong Answer:
+  2
+%p
+  %strong Explanation:
+  Do a little experiment: take an apple, and put it in a bag. Take another one, and do the same. Now look into the bag. How many apples do you see? Two.
+%br/
+
+.exam.brightbottomborder
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'expand' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'expand')
+  %h4 Q&A 2 (Worth 20 points)
+%br/
+%p
+  %strong Question:
+  What, according to the text, were the four main causes of the Civil War in Atlantis? (Write only the letter matching the correct choice.)
+  %ol
+    %li Disease, Famine, War, and Lolcats
+    %li The classic big-endian vs. little-endian question, road rage, overpopulation, and rats
+    %li Boredom with peace, rock music, video game agression, and too little space
+    %li All of the above
+    %li None of the above
+%p
+  %strong Answer:
+  5
+%p
+  %strong Explanation:
+  Truth is, no-one knows anything about Atlantis, to to mention whether a Civil War occurred there.
+%br/

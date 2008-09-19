@@ -1,0 +1,18 @@
+%h3 Edit Lesson Part
+%strong Title
+%br/
+~ text_field_tag "", "", :style => 'width:95%;'
+%br/
+%strong Description
+%br/
+~ text_area_tag "", "", :class => 'mceEditor', :style => 'width:95%;'
+%br/
+%strong Video (Optional)
+%br/
+~ text_area_tag "", "", :style => 'width:95%;'
+%br/
+%strong Content
+%br/
+~ text_area_tag "", "", :cols => 100, :class => 'mceEditor', :style => 'width:95%;'
+%br.clear_both/
+#middle_column.text_centered== #{submit_tag "Update"} or #{link_to "Cancel"}

@@ -1,0 +1,33 @@
+<p>
+  <b>Part:</b>
+  <%=h @user_part.part_id %>
+</p>
+
+<p>
+  <b>User unit:</b>
+  <%=h @user_part.user_unit_id %>
+</p>
+
+<p>
+  <b>Instructor:</b>
+  <%=h @user_part.instructor %>
+</p>
+
+<p>
+  <b>Grade:</b>
+  <%=h @user_part.grade %>
+</p>
+
+<p>
+  <b>Completed if student:</b>
+  <%=h @user_part.completed_if_student %>
+</p>
+
+<p>
+  <b>Submission or notes:</b>
+  <%=h @user_part.submission_or_notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_part_path(@user_part) %> |
+<%= link_to 'Back', user_parts_path %>

@@ -1,0 +1,58 @@
+8
+
+dir
+3119
+http://svn.techno-weenie.net/projects/mephisto/trunk/vendor/plugins/acts_as_list
+http://svn.techno-weenie.net/projects
+
+
+
+2007-10-04T17:35:58.777514Z
+2986
+technoweenie
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+567b1171-46fb-0310-a4c9-b4bef9110e78
+
+test
+dir
+
+init.rb
+file
+
+
+
+
+2008-01-29T08:55:53.796875Z
+a835ba701061ffbc6de94d018dcbe146
+2007-10-04T17:35:58.777514Z
+2986
+technoweenie
+
+lib
+dir
+
+README
+file
+
+
+
+
+2008-01-29T08:55:53.796875Z
+42212b5cb681c9888d56f9c0f36e1e02
+2007-10-04T17:35:58.777514Z
+2986
+technoweenie
+

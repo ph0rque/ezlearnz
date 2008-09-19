@@ -1,0 +1,33 @@
+# == Schema Information
+# Schema version: 11
+#
+# Table name: q_and_as
+#
+#  id             :integer(11)     not null, primary key
+#  q_and_a_set_id :integer(11)     
+#  position       :integer(11)     
+#  score          :integer(11)     
+#  question       :text            
+#  answer         :text            
+#  explanation    :text            
+#  created_at     :datetime        
+#  updated_at     :datetime        
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  q_and_a_set_id: 1
+  position: 1
+  score: 1
+  question: MyText
+  answer: MyText
+  explanation: MyText
+
+two:
+  q_and_a_set_id: 1
+  position: 1
+  score: 1
+  question: MyText
+  answer: MyText
+  explanation: MyText

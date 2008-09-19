@@ -1,0 +1,42 @@
+<h1>Editing user_part</h1>
+
+<%= error_messages_for :user_part %>
+
+<% form_for(@user_part) do |f| %>
+  <p>
+    <b>Part</b><br />
+    <%= f.text_field :part_id %>
+  </p>
+
+  <p>
+    <b>User unit</b><br />
+    <%= f.text_field :user_unit_id %>
+  </p>
+
+  <p>
+    <b>Instructor</b><br />
+    <%= f.check_box :instructor %>
+  </p>
+
+  <p>
+    <b>Grade</b><br />
+    <%= f.text_field :grade %>
+  </p>
+
+  <p>
+    <b>Completed if student</b><br />
+    <%= f.check_box :completed_if_student %>
+  </p>
+
+  <p>
+    <b>Submission or notes</b><br />
+    <%= f.text_area :submission_or_notes %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @user_part %> |
+<%= link_to 'Back', user_parts_path %>

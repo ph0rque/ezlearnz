@@ -1,0 +1,37 @@
+<h1>Editing user_q_and_a</h1>
+
+<%= error_messages_for :user_q_and_a %>
+
+<% form_for(@user_q_and_a) do |f| %>
+  <p>
+    <b>User q and a set</b><br />
+    <%= f.text_field :user_q_and_a_set_id %>
+  </p>
+
+  <p>
+    <b>Q and a</b><br />
+    <%= f.text_field :q_and_a_id %>
+  </p>
+
+  <p>
+    <b>Instructor</b><br />
+    <%= f.check_box :instructor %>
+  </p>
+
+  <p>
+    <b>Grade</b><br />
+    <%= f.text_field :grade %>
+  </p>
+
+  <p>
+    <b>Student answer</b><br />
+    <%= f.text_area :student_answer %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @user_q_and_a %> |
+<%= link_to 'Back', user_q_and_as_path %>

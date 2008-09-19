@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  unit_id: 1
+  body_or_instructions: MyText
+  lecture_media: MyText
+  position: 1
+  grading_weight: 1
+  part_type: MyString
+
+two:
+  title: MyString
+  unit_id: 1
+  body_or_instructions: MyText
+  lecture_media: MyText
+  position: 1
+  grading_weight: 1
+  part_type: MyString

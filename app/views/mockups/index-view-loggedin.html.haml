@@ -1,0 +1,62 @@
+#nav_bar
+  .login.float_right
+    = link_to "login"
+    |
+    = link_to "register"
+  .breadcrumbs.float_left
+    .plain.float_right
+      Home
+%br/
+%br/
+%br/
+%br/
+%p{ :style => 'font-size:220%; text-align:center; color:#FF7A00' }
+  %strong ezLearnz: the next-generation textbook...
+%p{ :style => 'font-size:125%; text-align:justify;' }
+  with courses and tutorials that anyone can create, edit and use.
+  Read more about ezlearnz
+  = link_to "here.", "http://blog.ezlearnz.com/post/29205280"
+%br/
+%br/
+
+#left_column
+  %h1
+    Students
+    %hr.bright/
+  Enroll in the subjects that interest you. Learn, answer questions, track your progress, get better.
+  %br/
+  %br/
+  %strong Subjects I'm Learning
+  .subject
+    =link_to "Subject 1", "/subject-view-student"
+    %hr.bright/
+    Subject 2
+#right_column
+  %h1
+    Course Listing
+    %hr.bright/
+  .subject
+    Subject 1
+    %hr.bright/
+    Subject 2
+    %hr.bright/
+    Subject 3
+    %hr.bright/
+    Subject 4
+#middle_column
+  %h1
+    Teachers
+    %hr.bright/
+  Teach the subjects you know. Add content, questions and answers, and explanations.
+  %br/
+  %br/
+  %strong Subjects I'm Teaching
+  .subject
+    =link_to "Subject 3", "/subject-view-teacher"
+    %hr.bright/
+    Subject 4
+  %br/
+  .subject New Subject
+
+
+

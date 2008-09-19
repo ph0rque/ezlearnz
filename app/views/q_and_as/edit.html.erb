@@ -1,0 +1,42 @@
+<h1>Editing q_and_a</h1>
+
+<%= error_messages_for :q_and_a %>
+
+<% form_for(@q_and_a) do |f| %>
+  <p>
+    <b>Q and a set</b><br />
+    <%= f.text_field :q_and_a_set_id %>
+  </p>
+
+  <p>
+    <b>Position</b><br />
+    <%= f.text_field :position %>
+  </p>
+
+  <p>
+    <b>Score</b><br />
+    <%= f.text_field :score %>
+  </p>
+
+  <p>
+    <b>Question</b><br />
+    <%= f.text_area :question %>
+  </p>
+
+  <p>
+    <b>Answer</b><br />
+    <%= f.text_area :answer %>
+  </p>
+
+  <p>
+    <b>Explanation</b><br />
+    <%= f.text_area :explanation %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @q_and_a %> |
+<%= link_to 'Back', q_and_as_path %>

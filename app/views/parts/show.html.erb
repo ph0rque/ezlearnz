@@ -1,0 +1,38 @@
+<p>
+  <b>Title:</b>
+  <%=h @part.title %>
+</p>
+
+<p>
+  <b>Unit:</b>
+  <%=h @part.unit_id %>
+</p>
+
+<p>
+  <b>Body or instructions:</b>
+  <%=h @part.body_or_instructions %>
+</p>
+
+<p>
+  <b>Lecture media:</b>
+  <%=h @part.lecture_media %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @part.position %>
+</p>
+
+<p>
+  <b>Grading weight:</b>
+  <%=h @part.grading_weight %>
+</p>
+
+<p>
+  <b>Part type:</b>
+  <%=h @part.part_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_part_path(@part) %> |
+<%= link_to 'Back', parts_path %>

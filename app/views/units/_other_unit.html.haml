@@ -1,0 +1,8 @@
+.chapter.brightbottomborder.clear_both
+  -# .check.float_left 90% If the user is a student
+  .float_right
+    = link_to "edit", edit_unit_unit_path(sub_unit.parent, sub_unit)
+    = link_to "delete", unit_path(sub_unit)
+  = sub_unit.title
+-for sub_sub_unit in sub_unit.sub_units
+  -# = render :partial => "other_unit", :object => sub_sub_unit

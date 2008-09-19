@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  part_id: 1
+  user_unit_id: 1
+  instructor: false
+  grade: 1
+  completed_if_student: false
+  submission_or_notes: MyText
+
+two:
+  part_id: 1
+  user_unit_id: 1
+  instructor: false
+  grade: 1
+  completed_if_student: false
+  submission_or_notes: MyText

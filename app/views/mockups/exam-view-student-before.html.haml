@@ -1,0 +1,51 @@
+#nav_bar
+  .login.float_right
+    = link_to "login"
+    |
+    = link_to "register"
+  .breadcrumbs.float_left
+    .plain.float_right
+      %strong Lesson 1 Quiz
+    .plain.float_left
+      %small you are here:
+    .dark.float_left
+      .light.float_left
+        .dark.float_left
+          .light.float_left
+            Home
+          Subject
+        Chapter 1
+      Lesson 1
+%br/
+
+.brightbottomborder.clear_both
+  %h2 Exam Title
+%br/
+
+%ol
+  %li
+    What is 1 + 1 ? (Write your answer numerically.)
+    %br/
+    ~ text_field_tag "", "3"
+    =button_to_function "Saved", :disabled => true
+    %br/
+    %br/
+
+  %li
+    What, according to the text, were the four main causes of the Civil War in Atlantis? (Write only the letter matching the correct choice.)
+    %ol
+      %li Disease, Famine, War, and Lolcats
+      %li The classic big-endian vs. little-endian question, road rage, overpopulation, and rats
+      %li Boredom with peace, rock music, video game agression, and too little space
+      %li All of the above
+      %li None of the above
+    %br/
+    ~ text_field_tag "", "5"
+    =button_to_function "Save"
+    %br/
+    %br/
+
+#middle_column.text_centered
+  =link_to button_to_function("Submit"), "exam-view-student-after"
+  or
+  =link_to "Cancel"

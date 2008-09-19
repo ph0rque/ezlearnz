@@ -1,0 +1,183 @@
+#nav_bar
+  .login.float_right
+    = link_to "login"
+    |
+    = link_to "register"
+  .breadcrumbs.float_left
+    .plain.float_right
+      %strong Lesson 1
+    .plain.float_left
+      %small you are here:
+    .dark.float_left
+      .light.float_left
+        .dark.float_left
+          Home
+        Subject
+      Chapter 1
+%br/
+%br/
+.new_part.brightbottomborder.clear_both
+  Create a New Lesson Part:
+#left_column{ :style => 'border-right:1px solid #aaaaff; margin-right:5px;' }
+  .new_list
+    %ul
+      %li= link_to "+ Lecture"
+      %li= link_to "+ Reference Material"
+.new_list
+  %ul
+    %li= link_to "+ Problem Set"
+    %li= link_to "+ Reading Assignment"
+    %li= link_to "+ Writing Assignment (Paper)"
+    %li= link_to "+ Presentation"
+    %li= link_to "+ Discussion"
+    %li= link_to "+ Quiz"
+  
+.brightbottomborder.clear_both
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'collapse' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')
+      %li{ :title => 'vote on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')
+      %li{ :title => 'comment on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'comment')
+      %li{ :title => 'print this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'print')
+      %li.divider
+      %li{ :title => 'edit lesson title and description' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'edit')
+      %li{ :title => 'delete this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'delete')
+      %li.divider
+      %li{ :title => 'new lesson part' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'new')  
+  %h2 Lesson 1
+%hr
+%strong Description:
+This is the lesson description.
+%br
+%br.clear_both
+
+.lesson.brightbottomborder.clear_both
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'collapse' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')
+      %li{ :title => 'video' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'video')      
+      %li{ :title => 'vote on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')
+      %li{ :title => 'comment on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'comment')
+      %li.divider
+      %li.light_blue{ :title => 'revision history' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'history')
+      %li{ :title => 'move' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'move') 
+      %li{ :title => 'edit this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'edit')
+      %li{ :title => 'delete this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'delete')
+  %h4 Part I: Part I description
+.revision_box.light_blue.clear_both
+  .revision
+%p
+  Lorem ipsum dolor sit amet,
+  %span{ :style=>'background-color:#ff9999;' }consectetuer adipiscing elit. Aenean nec magna sed tortor pretium viverra. Cras iaculis.
+  Nulla eu odio sollicitudin sem dictum rutrum. Nam sit amet felis. Pellentesque non mi ac risus ultrices luctus. Nunc nulla lectus, tincidunt sollicitudin, euismod id, commodo a, nisi. Etiam sed quam vel felis elementum rhoncus. Phasellus nisi. Maecenas commodo mi nec sem. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+  %span{ :style=>'background-color:#9999ff; text-decoration: line-through;' }Vestibulum eget enim
+  %span{ :style=>'background-color:#9999ff;' }ut risus bibendum malesuada.
+  Etiam aliquam euismod arcu. Duis commodo rhoncus felis. Aliquam in tortor non justo facilisis iaculis. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+%br/
+%div{ :style=>'float:left; padding:5px; background:#9999ff;' }
+  -# =image_tag("http://www.livius.org/a/2/emperors/marcus_aurelius_s.JPG", :border=>0)
+%p
+  %span{ :style=>'background-color:#ff9999; text-decoration: line-through;' }Nam laoreet, massa quis viverra tempor, quam nibh lacinia mauris, id sollicitudin nisl augue sed metus. Sed viverra facilisis tellus. Vivamus ultrices, ipsum vitae auctor ornare, massa risus interdum augue, n
+  %span{ :style=>'background-color:#ff9999;' }Non porta massa ligula a enim. Sed vel urna. Ut ornare adipiscing ipsum. Duis urna.
+  Cras tellus augue, hendrerit at, commodo at, mattis a, augue. Sed lorem. Pellentesque ornare mattis neque. Suspendisse eros. Cras porttitor, tortor ut aliquet tincidunt, nulla mauris luctus tortor, eu iaculis massa sapien lacinia eros. Nunc quis justo.
+%br/
+
+.lesson.brightbottomborder.clear_both
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'collapse' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')
+      %li{ :title => 'video' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'video')      
+      %li{ :title => 'vote on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')
+      %li.light_blue{ :title => 'comment on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'comment')
+      %li.divider
+      %li{ :title => 'revision history' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'history')
+      %li{ :title => 'move' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'move') 
+      %li{ :title => 'edit this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'edit'), "/edit-lessonpart-view"
+      %li{ :title => 'delete this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'delete')
+  %h4 Part II: Part II description
+.comment_box.light_blue.clear_both
+  .minitab.float_left
+    %ul
+      %li{ :title => 'vote on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')
+  .comment
+    %small by troll 3 days ago
+    %p Frist pr0st!
+  .minitab.float_left
+    %ul
+      %li{ :title => 'vote on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')
+  .comment
+    %small by student 2 days ago
+    %p
+      %i Nunc et justo eget metus porttitor pretium. Fusce porta elit id sem. Pellentesque malesuada. Phasellus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In rutrum euismod tellus. Sed enim. Praesent posuere pharetra augue. Nullam mollis est in felis. Duis consectetuer sollicitudin dui. Donec euismod tincidunt quam. Praesent eu metus. Ut eget sem.
+    Can you explain this in English?
+    .minitab.float_left
+      %ul
+        %li{ :title => 'vote on this' }
+          = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')    
+    .comment
+      %small by professor 1 day ago
+      %p No.
+      .minitab.float_left
+        %ul
+          %li{ :title => 'vote on this' }
+            = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')    
+      .comment
+        %small by student 21 hours ago
+        %p Please?
+        .minitab.float_left
+          %ul
+            %li{ :title => 'vote on this' }
+              = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')    
+        .comment
+          %small by professor 3 hours ago
+          %p No.
+          .minitab.float_left
+            %ul
+              %li{ :title => 'vote on this' }
+                = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')    
+          .comment
+            %small by student 12 minutes ago
+            %p Fine, be that way.
+%p Nunc et justo eget metus porttitor pretium. Fusce porta elit id sem. Pellentesque malesuada. Phasellus auctor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In rutrum euismod tellus. Sed enim. Praesent posuere pharetra augue. Nullam mollis est in felis. Duis consectetuer sollicitudin dui. Donec euismod tincidunt quam. Praesent eu metus. Ut eget sem.
+%br/
+%p Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam mollis leo vitae sapien. Cras pretium ligula et ante. Phasellus euismod eleifend odio. Aliquam gravida feugiat dui. Quisque sollicitudin. Quisque lacus est, commodo non, tincidunt nec, pellentesque eu, purus. Curabitur neque. Pellentesque lectus diam, porttitor nec, rutrum nec, vulputate ut, metus. Morbi hendrerit, mi quis pretium tristique, purus nunc accumsan tortor, quis tincidunt tortor eros in mi. Ut convallis varius arcu. Nam ut lacus. Praesent dolor. Suspendisse a erat. Aliquam id velit at massa ullamcorper dictum. Curabitur in enim rutrum neque semper rhoncus. Sed luctus urna a nulla. Nullam ut nunc vel nisl faucibus vestibulum.
+%br/
+%p Morbi non nisi sit amet magna volutpat adipiscing. Aliquam erat volutpat. Aenean a arcu ac eros malesuada sodales. Nunc eget massa nec sapien fringilla feugiat. Nunc odio magna, tempus et, eleifend ut, ornare id, diam. Nulla sodales, eros non tempus euismod, purus lacus suscipit ipsum, ut dictum erat nunc fermentum magna. Sed in dolor. Duis vel lectus. Duis posuere laoreet urna. In dolor sem, pulvinar vel, eleifend sed, malesuada nec, ante. Cras in arcu. Donec ac nunc. In accumsan, quam ac euismod luctus, mauris est convallis odio, in luctus felis urna vel pede. Suspendisse hendrerit. Aliquam varius. Pellentesque nec ligula. Nulla facilisi. Maecenas laoreet lorem ut massa. Sed dui risus, mollis nec, varius eget, pretium in, tortor. Curabitur et lectus.
+%br/
+
+#middle_column.brightbottomborder.brighttopborder.exam.clear_both
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'collapse' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')
+      %li{ :title => 'vote on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')
+      %li{ :title => 'comment on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'comment')
+  %h4
+    =link_to "Lesson 1 Quiz", "/exam-view-teacher"

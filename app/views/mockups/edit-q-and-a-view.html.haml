@@ -1,0 +1,19 @@
+%h3 Edit Question and Answer
+This question is worth how many points?
+~ text_field :score, :style => "width:20px;"
+%br/
+%br/
+%strong Question
+%br/
+~ text_area_tag "", "", :class => 'mceEditor', :style => 'width:95%;'
+%br/
+%strong Answer
+%br/
+~ text_area_tag "", "", :class => 'mceEditor', :style => 'width:95%;'
+%br/
+%strong Explanation
+%br/
+~ text_area_tag "", "", :class => 'mceEditor', :style => 'width:95%;'
+%br/
+
+#middle_column.text_centered== #{submit_tag "Update"} or #{link_to "Cancel"}

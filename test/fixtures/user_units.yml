@@ -1,0 +1,33 @@
+# == Schema Information
+# Schema version: 11
+#
+# Table name: user_units
+#
+#  id                           :integer(11)     not null, primary key
+#  parent_id                    :integer(11)     
+#  user_id                      :integer(11)     
+#  unit_id                      :integer(11)     
+#  instructor                   :boolean(1)      
+#  grade                        :integer(10)     
+#  percent_completed_if_student :integer(10)     
+#  created_at                   :datetime        
+#  updated_at                   :datetime        
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  parent_id: 1
+  user_id: 1
+  unit_id: 1
+  instructor: false
+  grade: 9.99
+  percent_completed_if_student: 9.99
+
+two:
+  parent_id: 1
+  user_id: 1
+  unit_id: 1
+  instructor: false
+  grade: 9.99
+  percent_completed_if_student: 9.99

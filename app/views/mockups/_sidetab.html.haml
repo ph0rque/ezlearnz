@@ -1,0 +1,13 @@
+.sidetab
+  %ul
+    %li{ :title => 'vote on this' }
+      = link_to content_tag(:div, "", :class => 'icon', :id => 'vote')
+    %li{ :title => 'comment on this' }
+      = link_to content_tag(:div, "", :class => 'icon', :id => 'comment')
+    %li{ :title => 'edit this', :onclick => 'return process_page_edit(this);' }
+      .icon#edit      
+    %li{ :title => 'print this' }
+      = link_to content_tag(:div, "", :class => 'icon', :id => 'print', :onclick => 'window.print();')
+    %li{ :title => 'revision history' }
+      = link_to content_tag(:div, "", :class => 'icon', :id => 'history')
+  %br/

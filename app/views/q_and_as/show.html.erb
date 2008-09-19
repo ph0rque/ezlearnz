@@ -1,0 +1,33 @@
+<p>
+  <b>Q and a set:</b>
+  <%=h @q_and_a.q_and_a_set_id %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @q_and_a.position %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%=h @q_and_a.score %>
+</p>
+
+<p>
+  <b>Question:</b>
+  <%=h @q_and_a.question %>
+</p>
+
+<p>
+  <b>Answer:</b>
+  <%=h @q_and_a.answer %>
+</p>
+
+<p>
+  <b>Explanation:</b>
+  <%=h @q_and_a.explanation %>
+</p>
+
+
+<%= link_to 'Edit', edit_q_and_a_path(@q_and_a) %> |
+<%= link_to 'Back', q_and_as_path %>

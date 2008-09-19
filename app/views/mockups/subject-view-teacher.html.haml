@@ -1,0 +1,144 @@
+#nav_bar
+  .login.float_right
+    = link_to "login"
+    |
+    = link_to "register"
+  .breadcrumbs.float_left
+    .plain.float_right
+      %strong Subject
+    .plain.float_left
+      %small you are here:
+    .dark.float_left
+      Home
+%br/
+
+.brightbottomborder.clear_both
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'collapse' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')
+      %li{ :title => 'vote on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')
+      %li{ :title => 'comment on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'comment')
+      %li.divider
+      %li{ :title => 'edit this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'edit')
+      %li{ :title => 'delete this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'delete')
+      %li.divider
+      %li{ :title => 'new chapter' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'new')
+  %h2 Subject
+%hr
+%strong Description:
+This is the subject description.
+%br
+%br.clear_both
+
+.chapter.brightbottomborder.clear_both
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'expand' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'expand')
+  %h4 Chapter 1: Chapter 1 Description
+
+.chapter.brightbottomborder.clear_both
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'collapse' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')     
+      %li{ :title => 'vote on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')
+      %li{ :title => 'comment on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'comment')
+      %li.divider
+      %li{ :title => 'move this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'move')
+      %li{ :title => 'edit this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'edit')
+      %li{ :title => 'delete this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'delete')
+      %li.divider
+      %li{ :title => 'new lesson' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'new')
+  %h4 Chapter 2: Chapter 2 Description
+
+.chapter.brightbottomborder.clear_both
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'expand' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'expand')     
+  %h4 Chapter 3: Chapter 3 Description
+  .lesson.brighttopborder.clear_both{ :style=>'margin:0 20px;' }
+    .minitab.float_right
+      %ul
+        %li.no_hover{ :title => 'collapse' }
+          = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')     
+        %li{ :title => 'move this' }
+          = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'move')
+        %li{ :title => 'edit this' }
+          = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'edit')
+        %li{ :title => 'delete this' }
+          = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'delete')
+    =link_to "Lesson 1: Lesson 1 Description", "/lesson-view-teacher"
+    
+  .lesson.brighttopborder.clear_both{ :style=>'margin:0 20px;' }
+    .minitab.float_right
+      %ul
+        %li.no_hover{ :title => 'expand' }
+          = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'expand')     
+    Lesson 2: Lesson 2 Description
+    
+  .lesson.brighttopborder.clear_both{ :style=>'margin:0 20px;' }
+    .minitab.float_right
+      %ul
+        %li.no_hover{ :title => 'expand' }
+          = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'expand')     
+    Lesson 3: Lesson 3 Description
+    
+  .lesson.brighttopborder.clear_both{ :style=>'margin:0 20px;' }
+    .minitab.float_right
+      %ul
+        %li.no_hover{ :title => 'expand' }
+          = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'expand')     
+    Lesson 4: Lesson 4 Description
+    
+  .lesson.brighttopborder.clear_both{ :style=>'margin:0 20px;' }
+    .minitab.float_right
+      %ul
+        %li.no_hover{ :title => 'expand' }
+          = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'expand')     
+    Lesson 5: Lesson 5 Description
+  .exam.brighttopborder.clear_both{ :style=>'margin:0 20px;' }
+    .minitab.float_right
+      %ul
+        %li.no_hover{ :title => 'expand' }
+          = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'expand')     
+    Chapter 3 Exam
+    
+.chapter.brightbottomborder.clear_both
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'expand' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'expand')     
+  %h4 Chapter 4: Chapter 4 Description
+
+.chapter.brightbottomborder.clear_both
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'expand' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'expand')     
+  %h4 Chapter 5: Chapter 5 Description
+
+%br/
+#middle_column.expandable.brightbottomborder.brighttopborder.exam
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'collapse' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')
+      %li{ :title => 'vote on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')
+      %li{ :title => 'comment on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'comment')
+  %h4 Subject Final Exam

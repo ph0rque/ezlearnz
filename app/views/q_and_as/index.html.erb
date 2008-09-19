@@ -1,0 +1,30 @@
+<h1>Listing q_and_as</h1>
+
+<table>
+  <tr>
+    <th>Q and a set</th>
+    <th>Position</th>
+    <th>Score</th>
+    <th>Question</th>
+    <th>Answer</th>
+    <th>Explanation</th>
+  </tr>
+
+<% for q_and_a in @q_and_as %>
+  <tr>
+    <td><%=h q_and_a.q_and_a_set_id %></td>
+    <td><%=h q_and_a.position %></td>
+    <td><%=h q_and_a.score %></td>
+    <td><%=h q_and_a.question %></td>
+    <td><%=h q_and_a.answer %></td>
+    <td><%=h q_and_a.explanation %></td>
+    <td><%= link_to 'Show', q_and_a %></td>
+    <td><%= link_to 'Edit', edit_q_and_a_path(q_and_a) %></td>
+    <td><%= link_to 'Destroy', q_and_a, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New q_and_a', new_q_and_a_path %>

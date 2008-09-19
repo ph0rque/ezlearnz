@@ -1,0 +1,28 @@
+<h1>Listing user_q_and_as</h1>
+
+<table>
+  <tr>
+    <th>User q and a set</th>
+    <th>Q and a</th>
+    <th>Instructor</th>
+    <th>Grade</th>
+    <th>Student answer</th>
+  </tr>
+
+<% for user_q_and_a in @user_q_and_as %>
+  <tr>
+    <td><%=h user_q_and_a.user_q_and_a_set_id %></td>
+    <td><%=h user_q_and_a.q_and_a_id %></td>
+    <td><%=h user_q_and_a.instructor %></td>
+    <td><%=h user_q_and_a.grade %></td>
+    <td><%=h user_q_and_a.student_answer %></td>
+    <td><%= link_to 'Show', user_q_and_a %></td>
+    <td><%= link_to 'Edit', edit_user_q_and_a_path(user_q_and_a) %></td>
+    <td><%= link_to 'Destroy', user_q_and_a, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New user_q_and_a', new_user_q_and_a_path %>

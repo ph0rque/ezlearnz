@@ -1,0 +1,2 @@
+module UserQAndAsHelper
+end

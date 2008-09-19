@@ -1,0 +1,20 @@
+# == Schema Information
+# Schema version: 7
+#
+# Table name: exams
+#
+#  id         :integer         not null, primary key
+#  type       :integer         
+#  topic_id   :integer         
+#  topic_type :string(255)     
+#  created_at :datetime        
+#  updated_at :datetime        
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# one:
+#   column: value
+#
+# two:
+#   column: value

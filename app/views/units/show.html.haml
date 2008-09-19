@@ -1,0 +1,16 @@
+= error_messages_for :unit
+- if @unit.is_a?(Lesson) || @unit.is_a?(Lab)
+  = render :partial => "lesson_or_lab"
+- else
+  .brightbottomborder.clear_both
+    .float_right
+      = link_to "edit", edit_unit_path(@unit)
+      = link_to "delete", unit_path(@unit)
+  %h2= @unit.title
+  %hr
+  %strong Description:
+  = @unit.description
+  %br
+  %br.clear_both
+  -for sub_unit in @unit.sub_units
+    = render :partial => "other_unit", :object => sub_unit

@@ -1,0 +1,116 @@
+#nav_bar
+  .login.float_right
+    = link_to "login"
+    |
+    = link_to "register"
+  .breadcrumbs.float_left
+    .plain.float_right
+      %strong Subject
+    .plain.float_left
+      %small you are here:
+    .dark.float_left
+      Home
+%br/
+
+.brightbottomborder.clear_both
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'collapse' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')
+      %li{ :title => 'vote on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')
+      %li{ :title => 'comment on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'comment')
+  %h2 Subject
+%hr
+%strong Description:
+This is the subject description.
+%br
+%br.clear_both
+
+.chapter.brightbottomborder.clear_both
+  .check.float_left 90%
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'collapse' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')     
+      %li{ :title => 'vote on this' }
+        = link_to content_tag(:div, "12", :class => 'mini_icon', :id => 'voteup')
+      %li{ :title => 'comment on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'comment')
+  %h4 Chapter 1: Chapter 1 Description
+
+.chapter.brightbottomborder.clear_both
+  .check.float_left 96%
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'collapse' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')     
+      %li{ :title => 'vote on this' }
+        = link_to content_tag(:div, "24", :class => 'mini_icon', :id => 'votedown')
+      %li{ :title => 'comment on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'comment')
+  %h4 Chapter 2: Chapter 2 Description
+
+.chapter.brightbottomborder.clear_both
+  -# .progress.float_left I don't like how this looks...
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'expand' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'expand')     
+  %h4 Chapter 3: Chapter 3 Description
+  .lesson.brighttopborder.clear_both{ :style=>'margin:0 20px;' }
+    .check.float_left 87%
+    =link_to "Lesson 1: Lesson 1 Description", "/lesson-view-student"
+    
+  .lesson.brighttopborder.clear_both{ :style=>'margin:0 20px;' }
+    .check.float_left 99%  
+    Lesson 2: Lesson 2 Description
+    
+  .lesson.brighttopborder.clear_both{ :style=>'margin:0 20px;' }
+    .check.float_left 100%
+    Lesson 3: Lesson 3 Description
+    
+  .lesson.brighttopborder.clear_both{ :style=>'margin:0 20px;' }    
+    Lesson 4: Lesson 4 Description
+    
+  .lesson.brighttopborder.clear_both{ :style=>'margin:0 20px;' }   
+    Lesson 5: Lesson 5 Description
+  
+  .exam.brighttopborder.clear_both{ :style=>'margin:0 20px;' }
+    .minitab.float_right
+      %ul
+        %li.no_hover{ :title => 'collapse' }
+          = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')
+        %li{ :title => 'vote on this' }
+          = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')
+        %li{ :title => 'comment on this' }
+          = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'comment')
+    Chapter 3 Exam
+    
+.chapter.brightbottomborder.clear_both
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'expand' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'expand')     
+  %h4 Chapter 4: Chapter 4 Description
+
+.chapter.brightbottomborder.clear_both
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'expand' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'expand')     
+  %h4 Chapter 5: Chapter 5 Description
+
+%br/
+#middle_column.expandable.brightbottomborder.brighttopborder.exam
+  .minitab.float_right
+    %ul
+      %li.no_hover{ :title => 'collapse' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'collapse')
+      %li{ :title => 'vote on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'vote')
+      %li{ :title => 'comment on this' }
+        = link_to content_tag(:div, "", :class => 'mini_icon', :id => 'comment')
+  %h4
+    =link_to "Subject Final Exam"
