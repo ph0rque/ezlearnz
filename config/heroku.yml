@@ -1,2 +1,3 @@
-toolbar_collaborators: true
-toolbar_public: true
+toolbar_collaborators: false
+toolbar_public: false
+request_timeout: 20 
