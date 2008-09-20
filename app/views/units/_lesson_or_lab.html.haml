@@ -10,10 +10,7 @@
 
 - for part in @unit.parts
   .lesson.brightbottomborder.clear_both
-    .minitab.float_right
-      %ul
-        %li{ :title => 'move' }
-          =  link_to content_tag(:div, "", :class => 'mini_icon', :id => 'move') 
+    move
     = link_to "edit", edit_unit_part_path(@unit, part)
     = link_to "delete", unit_part_path(@unit, part)
     %h4== #{part.title}: #{part.description}

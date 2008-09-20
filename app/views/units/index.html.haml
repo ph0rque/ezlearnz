@@ -29,22 +29,22 @@
     %italic Coming Soon!
     
 #right_column
-  - if @subjects?
+  - unless @subjects.empty?
     %h3 Course Listing
     .subject
       %hr.bright/
       %strong Subjects
       - for fragment in @subjects
         %hr.bright/
-        = link_to "#{fragment.title}", unit_path(fragment)
+        = link_to "#{fragment.title}", fragment
         = link_to "delete", unit_path(fragment), :confirm => 'Are you sure?', :method => :delete
-  - if @fragments?
+  - unless @fragments.empty?
     .subject
       %hr.bright/
       %strong Fragments
       - for fragment in @fragments
         %hr.bright/
-        = link_to "#{fragment.title}", unit_path(fragment)
+        = link_to "#{fragment.title}", fragment
         = link_to "delete", unit_path(fragment), :confirm => 'Are you sure?', :method => :delete
       
 #middle_column

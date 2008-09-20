@@ -2,10 +2,8 @@ class UnitsController < ApplicationController
   # GET /units
   # GET /units.xml
   def index
-    @subjects  = Unit.find(:all, :conditions => {:type => "Subject"})
-    
-    
-    @fragments = Unit.find(:all, :conditions => {:type => "Fragment"})   
+    @subjects  = Unit.find(:all, :conditions => {:unit_type => "Subject"})
+    @fragments = Unit.find(:all, :conditions => {:unit_type => "Fragment"})   
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @subjects }

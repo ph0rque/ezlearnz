@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 7) do
     t.text     "lecture_media"
     t.integer  "position"
     t.integer  "grading_weight"
-    t.string   "type"
+    t.string   "part_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 7) do
   create_table "units", :force => true do |t|
     t.integer  "parent_id"
     t.integer  "position"
-    t.string   "type"
+    t.string   "unit_type"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(:version => 7) do
     t.integer  "user_q_and_a_set_id"
     t.integer  "q_and_a_id"
     t.boolean  "instructor"
-    t.decimal  "grade"
+    t.integer  "grade",               :limit => 10, :precision => 10, :scale => 0
     t.text     "student_answer"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(:version => 7) do
     t.integer  "user_id"
     t.integer  "unit_id"
     t.boolean  "instructor"
-    t.decimal  "grade"
-    t.decimal  "percent_completed_if_student"
+    t.integer  "grade",                        :limit => 10, :precision => 10, :scale => 0
+    t.integer  "percent_completed_if_student", :limit => 10, :precision => 10, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
