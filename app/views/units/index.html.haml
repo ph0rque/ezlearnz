@@ -29,7 +29,7 @@
     %italic Coming Soon!
     
 #right_column
-  - unless @subjects.empty?
+  - if @subjects?
     %h3 Course Listing
     .subject
       %hr.bright/
@@ -38,7 +38,7 @@
         %hr.bright/
         = link_to "#{fragment.title}", unit_path(fragment)
         = link_to "delete", unit_path(fragment), :confirm => 'Are you sure?', :method => :delete
-  - unless @fragments.empty?
+  - if @fragments?
     .subject
       %hr.bright/
       %strong Fragments
