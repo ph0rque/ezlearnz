@@ -1,9 +1,7 @@
 .brightbottomborder.clear_both
-  .minitab.float_right
-    %ul
-      %li= link_to "edit", edit_unit_path(@unit)
-      %li= link_to "delete", unit_path(@unit)
-  %h2= @unit.title
+  %li= link_to "edit", edit_unit_path(@unit)
+  %li= link_to "delete", unit_path(@unit)
+%h2= @unit.title
 %hr
 %strong Description:
 = @unit.description
@@ -19,5 +17,5 @@
     = link_to "edit", edit_unit_part_path(@unit, part)
     = link_to "delete", unit_part_path(@unit, part)
     %h4== #{part.title}: #{part.description}
-  .video.light_blue= part.lecture_media unless part.lecture_media.nil?
+  .video.light_blue= part.lecture_media if part.lecture_media?
   %p= part.body_or_instructions 

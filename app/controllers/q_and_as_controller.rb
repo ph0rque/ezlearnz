@@ -2,7 +2,8 @@ class QAndAsController < ApplicationController
   # GET /q_and_as
   # GET /q_and_as.xml
   def index
-    @q_and_as = QAndA.find(:all)
+    @part = Part.find(params[:part_id])
+    @q_and_as = @part.q_and_as
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,21 +11,11 @@ class QAndAsController < ApplicationController
     end
   end
 
-  # GET /q_and_as/1
-  # GET /q_and_as/1.xml
-  def show
-    @q_and_a = QAndA.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @q_and_a }
-    end
-  end
-
   # GET /q_and_as/new
   # GET /q_and_as/new.xml
   def new
-    @q_and_a = QAndA.new
+    @part = Part.find(params[:part_id])
+    @q_and_a = @part.q_and_as.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +31,8 @@ class QAndAsController < ApplicationController
   # POST /q_and_as
   # POST /q_and_as.xml
   def create
-    @q_and_a = QAndA.new(params[:q_and_a])
+    @part = Part.find(params[:part_id])
+    @q_and_a = @part.q_and_as.build(params[:q_and_a])
 
     respond_to do |format|
       if @q_and_a.save
@@ -74,11 +66,12 @@ class QAndAsController < ApplicationController
   # DELETE /q_and_as/1
   # DELETE /q_and_as/1.xml
   def destroy
+    @part = Part.find(params[:part_id])
     @q_and_a = QAndA.find(params[:id])
     @q_and_a.destroy
 
     respond_to do |format|
-      format.html { redirect_to(q_and_as_url) }
+      format.html { redirect_to(@part) }
       format.xml  { head :ok }
     end
   end
