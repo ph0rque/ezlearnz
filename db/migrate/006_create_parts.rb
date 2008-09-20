@@ -7,7 +7,7 @@ class CreateParts < ActiveRecord::Migration
       t.text :lecture_media
       t.integer :position
       t.integer :grading_weight
-      t.string :type
+      t.string :part_type
 
       t.timestamps
     end

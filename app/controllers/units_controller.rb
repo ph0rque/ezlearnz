@@ -2,8 +2,10 @@ class UnitsController < ApplicationController
   # GET /units
   # GET /units.xml
   def index
-    @subjects  = Subject.find(:all); @fragments = Fragment.find(:all)
+    @subjects  = Unit.find(:all, :conditions => {:type => "Subject"})
     
+    
+    @fragments = Unit.find(:all, :conditions => {:type => "Fragment"})   
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @subjects }
@@ -24,7 +26,7 @@ class UnitsController < ApplicationController
   # GET /units/new
   # GET /units/new.xml
   def new
-    @unit = Unit.factory(params[:type])
+    @unit = Unit.new
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @unit }
@@ -43,7 +45,7 @@ class UnitsController < ApplicationController
   # POST /units
   # POST /units.xml
   def create
-    @unit = Unit.new(params[:unit][:type], params[:unit])
+    @unit = Unit.new(params[:unit])
 
     respond_to do |format|
       if @unit.save

@@ -3,7 +3,7 @@ class CreateUnits < ActiveRecord::Migration
     create_table :units do |t|
       t.integer :parent_id
       t.integer :position
-      t.string :type
+      t.string :unit_type
       t.string :title
       t.text :description
 

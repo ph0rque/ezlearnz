@@ -1,6 +1,6 @@
 .brightbottomborder.clear_both
-  %li= link_to "edit", edit_unit_path(@unit)
-  %li= link_to "delete", unit_path(@unit)
+  = link_to "edit", edit_unit_path(@unit)
+  = link_to "delete", @unit, :method => :delete
 %h2= @unit.title
 %hr
 %strong Description:
