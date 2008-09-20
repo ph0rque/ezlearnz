@@ -13,4 +13,4 @@
   %br
   %br.clear_both
   -for sub_unit in @unit.sub_units
-    = render :partial => "other_unit", :object => sub_unit
+    = render :partial => "other_unit", :locals => {:sub_unit => sub_unit}

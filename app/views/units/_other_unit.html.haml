@@ -5,4 +5,4 @@
     = link_to "delete", unit_path(sub_unit)
   = sub_unit.title
 -for sub_sub_unit in sub_unit.sub_units
-  -# = render :partial => "other_unit", :object => sub_sub_unit
+  = render :partial => "other_unit", :locals => {:sub_unit => sub_sub_unit}
