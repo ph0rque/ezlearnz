@@ -24,7 +24,7 @@ class UnitsController < ApplicationController
   # GET /units/new
   # GET /units/new.xml
   def new
-    @unit = Unit.new #(params[:type]) # = Unit.factory(params[:type])
+    @unit = Unit.factory(params[:type])
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @unit }
@@ -43,7 +43,7 @@ class UnitsController < ApplicationController
   # POST /units
   # POST /units.xml
   def create
-    @unit = Unit.new(params[:unit]) # = Unit.new(params[:unit][:type], params[:unit])
+    @unit = Unit.new(params[:unit][:type], params[:unit])
 
     respond_to do |format|
       if @unit.save

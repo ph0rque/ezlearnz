@@ -8,6 +8,18 @@ class Unit < ActiveRecord::Base
   has_many   :users, :through => :user_units
 
   acts_as_list :scope => :parent unless self.parent.nil?
+  
+  def self.factory(type, params = nil)
+    type ||= 'Unit'
+    begin
+      if (type.constantize.base_class) == Unit
+        return type.constantize.new(params)
+      end
+    rescue
+      logger.warn("Failed attempting to create a Unit of type: #{type}")
+    end
+    return Unit.new(params)
+  end
   # vestigial methods at the bottom of this file
 end
 
@@ -45,18 +57,6 @@ class Lab < Unit
     WritingAssignment.create(:unit_id => self.id, :title => "Assignment: #{self.title} Report")
   end
 end
-
-  # def self.factory(type, params = nil)
-  #   type ||= 'Unit'
-  #   begin
-  #     if (type.constantize.base_class) == Unit
-  #       return type.constantize.new(params)
-  #     end
-  #   rescue
-  #     logger.warn("Failed attempting to create a Unit of type: #{type}")
-  #   end
-  #   return Unit.new(params)
-  # end
 
   # after_create :determine_author
   # Create the join table for user and unit, unless it already exists.

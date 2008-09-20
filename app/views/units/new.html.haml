@@ -1,6 +1,6 @@
 %h3== New #{params[:type] || "Unit" }
 = error_messages_for :unit
-- form_for(unit_path(@unit)) do |f|
+- form_for(@unit) do |f|
   = f.hidden_field :parent_id, :value => params[:parent_id]
   = f.hidden_field :position,  :value => params[:position]
   = f.text_field :type,        :value => params[:type]
