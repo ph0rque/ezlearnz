@@ -1,0 +1,23 @@
+.brightbottomborder.clear_both
+  .float_right
+    =link_to "Edit Exam Title", edit_part_path(@part)
+    =link_to "New Q&A TBD", new_part_q_and_a_path(@part)
+  %h2= @part.title
+
+- for q_and_a in @q_and_as
+  .exam.brightbottomborder
+    .float_right
+      =link_to "Edit", edit_q_and_a_path(q_and_a)
+      =link_to "Delete", q_and_a, :method => :delete
+    %h4== Q&A #{q_and_a.position} (Worth #{q_and_a.score} Points)
+  %br/
+  %p
+    %strong Question:
+    = q_and_a.question
+  %p
+    %strong Answer:
+    = q_and_a.answer
+  %p
+    %strong Explanation:
+    = q_and_a.explanation
+  %br
