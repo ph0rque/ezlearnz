@@ -8,7 +8,6 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
-#test
 
 ActiveRecord::Schema.define(:version => 7) do
 
@@ -60,7 +59,7 @@ ActiveRecord::Schema.define(:version => 7) do
     t.integer  "user_q_and_a_set_id"
     t.integer  "q_and_a_id"
     t.boolean  "instructor"
-    t.integer  "grade",               :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "grade"
     t.text     "student_answer"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -71,8 +70,8 @@ ActiveRecord::Schema.define(:version => 7) do
     t.integer  "user_id"
     t.integer  "unit_id"
     t.boolean  "instructor"
-    t.integer  "grade",                        :limit => 10, :precision => 10, :scale => 0
-    t.integer  "percent_completed_if_student", :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "grade"
+    t.decimal  "percent_completed_if_student"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

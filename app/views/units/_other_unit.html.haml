@@ -3,6 +3,7 @@
   .float_right
     = link_to "edit", edit_unit_unit_path(sub_unit.parent, sub_unit)
     = link_to "delete", unit_path(sub_unit)
-  = sub_unit.title
--for sub_sub_unit in sub_unit.sub_units
-  = render :partial => "other_unit", :locals => {:sub_unit => sub_sub_unit}
+  = link_to sub_unit.title, sub_unit
+  -for sub_sub_unit in sub_unit.sub_units
+    %div{ :style => 'margin:1%;' }
+      = render :partial => "other_unit", :locals => {:sub_unit => sub_sub_unit}

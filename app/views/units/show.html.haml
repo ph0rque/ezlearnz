@@ -1,5 +1,5 @@
 = error_messages_for :unit
-- if @unit.unit_type = "Lesson" || @unit.unit_type = "Lab"
+- if @unit.unit_type == "Lesson" || @unit.unit_type == "Lab"
   = render :partial => "lesson_or_lab"
 - else
   .brightbottomborder.clear_both
@@ -14,3 +14,4 @@
   %br.clear_both
   -for sub_unit in @unit.sub_units
     = render :partial => "other_unit", :locals => {:sub_unit => sub_unit}
+    %br/
