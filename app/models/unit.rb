@@ -8,7 +8,8 @@ class Unit < ActiveRecord::Base
 
   acts_as_list :scope => :parent unless self.parent.nil? # This will probably need to be replaced.
 
-  def self.populate
+  after_create :populate
+  def populate
     case self.type
       when "Subject"
         5.times { |i| units.create(:type =>"Chapter", :parent_id =>self.id, :title => "Chapter #{i+1}") }
@@ -19,10 +20,11 @@ class Unit < ActiveRecord::Base
         parts.create(:type =>"Exam", :unit_id => self.id, :title => "#{self.title} Chapter Exam")
       when "Lesson"
         4.times { |i| parts.create(:type =>"Lecture", :unit_id => self.id, :title => "Part #{i+1}") }
-        parts.create(:type =>"Problem", :unit_id => self.id, :title => "#{self.title} Problem Set")
+        parts.create(:type =>"Problem Set", :unit_id => self.id, :title => "#{self.title} Problem Set")
       when "Lab"
         3.times { |i| parts.create(:type =>"Lecture", :unit_id => self.id, :title => "Part #{i+1}") }
-        parts.create(:type =>"Writing Assignment", :unit_id => self.id, :title => "Assignment: #{self.title} Report")
+        parts.create(:type =>"Writing Assignment", :unit_id => self.id,
+                     :title => "Assignment: #{self.title} Report")
     end
   end
   # vestigial methods at the bottom of this file
@@ -32,6 +34,7 @@ end
   ## Create the join table for user and unit, unless it already exists.
   # def determine_author
   #   if self.users.empty? 
-  #     if self.parent? user_unit.create(:instructor =>'true') : user_unit.create(:user_id => current_user.id, :instructor =>'true')
+  #     if self.parent? user_unit.create(:instructor =>'true') :
+  #                     user_unit.create(:user_id => current_user.id, :instructor =>'true')
   #   end
   # end
