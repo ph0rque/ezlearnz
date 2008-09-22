@@ -10,15 +10,14 @@
                       position:relative; top: 0; right:0; clear:both;}
 .comment             {padding:0 5px 5px 35px; margin-bottom: 5px;
                       background:transparent url(/images/transparent_background_light.png);}
-.dark                {background:transparent url(/images/transparent_background_dark_arrow.png)
-                      center right; padding-right:1em; margin-right:.2em;}
-.light               {background:transparent url(/images/transparent_background_light_arrow.png)
-                      center right; padding-right:1em; margin-right:.2em;}
+.dark                {background:transparent url(/images/transparent_background_dark_arrow.png) center right;
+                      padding-right:1em; margin-right:.2em;}
+.light               {background:transparent url(/images/transparent_background_light_arrow.png) center right;
+                      padding-right:1em; margin-right:.2em;}
 .plain               {margin-right:.5em;}
 .check               {width:40px; height:20px; background: url(/images/check.png);
                       padding:5px 0; text-align:center; color:#ffec6f;
                       font-size:70%; letter-spacing:-1px;font-weight:bold;}
-             
 /*Test-related*/
 .right_answer        {padding: 0.5em 0; border:1px solid green; background:#99ff99;}
 .wrong_answer        {padding: 0.5em 0; border:1px solid red; background:pink;}

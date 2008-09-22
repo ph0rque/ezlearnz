@@ -13,6 +13,8 @@
   = @unit.description
   %br
   %br.clear_both
-  -for sub_unit in @unit.sub_units
+  - for sub_unit in @unit.sub_units
     = render :partial => "other_unit", :locals => {:sub_unit => sub_unit}
     %br/
+  - for part in @unit.parts
+    = render :partial => "parts/compact_part", :locals => {:part => part}

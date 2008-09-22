@@ -1,5 +1,6 @@
 class Unit < ActiveRecord::Base
-  has_many   :sub_units, :class_name => 'Unit', :foreign_key => 'parent_id', :order => 'position'
+  has_many   :sub_units, :class_name => 'Unit', :foreign_key => 'parent_id', :order => 'position',
+             :dependent => :destroy # take this out before opening beta
   belongs_to :parent,    :class_name => 'Unit', :foreign_key => 'parent_id'
 
   has_many   :parts, :order => 'position', :dependent => :destroy
@@ -16,7 +17,7 @@ class Unit < ActiveRecord::Base
         Part.create(:part_type =>"Final Exam", :unit_id =>self.id, :title => "#{self.title} Final Exam")
       when "Chapter"
         5.times { |i| Unit.create(:unit_type =>"Lesson", :parent_id => self.id, :title => "Lesson #{i+1}") }
-        Part.create(:part_type =>"Lab", :unit_id => self.id, :title => "#{self.title} Lab")
+        Unit.create(:unit_type =>"Lab", :parent_id => self.id, :title => "#{self.title} Lab")
         Part.create(:part_type =>"Exam", :unit_id => self.id, :title => "#{self.title} Chapter Exam")
       when "Lesson"
         4.times { |i| Part.create(:part_type =>"Lecture", :unit_id => self.id, :title => "Part #{i+1}") }

@@ -1,0 +1,9 @@
+.part.brightbottomborder.clear_both{ :style => 'margin:1%;' }
+  -# .check.float_left 90% If the user is a student
+  .float_right
+    = link_to "edit", edit_unit_part_path(part.unit, part)
+    = link_to "delete", part_path(part)
+  -if part.q_and_as.empty? #What is a more compact way to write this?
+    = link_to part.title, part
+  - else
+    = link_to part.title, q_and_a_path(part.q_and_as)

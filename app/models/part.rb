@@ -1,7 +1,7 @@
 class Part < ActiveRecord::Base
-  belongs_to :unit, :polymorphic => true
+  belongs_to :unit
   has_many :user_parts
-  has_many :q_and_as
+  has_many :q_and_as, :dependent => :destroy
   validates_presence_of :title, :unit_id
   
   acts_as_list :scope => :unit # This will probably need to be replaced.
