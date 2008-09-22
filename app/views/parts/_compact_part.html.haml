@@ -6,4 +6,4 @@
   -if part.q_and_as.empty? #What is a more compact way to write this?
     = link_to part.title, part
   - else
-    = link_to part.title, q_and_a_path(part.q_and_as)
+    = link_to part.title, part_q_and_as_path(part)
