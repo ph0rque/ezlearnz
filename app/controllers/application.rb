@@ -23,8 +23,4 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => 'ae67e8876cffba067ec5463cd86e8616'
   include AuthenticatedSystem
-  
-  # Force Ruby to interpret the Parts and Units file and see that they contains multiple models
-  require_dependency 'part' 
-  require_dependency 'unit'
 end

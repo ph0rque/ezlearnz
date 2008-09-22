@@ -27,7 +27,6 @@ class Unit < ActiveRecord::Base
                      :title => "Assignment: #{self.title} Report")
     end
   end
-  # vestigial methods at the bottom of this file
 end
 
   # after_create :determine_author

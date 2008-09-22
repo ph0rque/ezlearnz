@@ -1,9 +1,7 @@
 /*note to self -- padding: [top] [right] [bottom] [left];*/
 
 /* Modules (boxes), etc. */
-.subject, .chapter, .lesson, .new_part,
-  .exam              {min-height:32px;
-                      background:transparent url(/images/transparent_background_dark.png);}
+.unit, .part         {background:transparent url(/images/transparent_background_dark.png);}
 .edit                {display:none;}
 .video               {padding:5px; float:right;}
 .comment_box         {width:40%; padding:5px; margin-top:-1px; float:right;}

@@ -1,9 +1,19 @@
-.chapter.brightbottomborder.clear_both
+.unit.brightbottomborder.clear_both
   -# .check.float_left 90% If the user is a student
   .float_right
     = link_to "edit", edit_unit_unit_path(sub_unit.parent, sub_unit)
     = link_to "delete", unit_path(sub_unit)
   = link_to sub_unit.title, sub_unit
-  -for sub_sub_unit in sub_unit.sub_units
+  - for sub_sub_unit in sub_unit.sub_units
     %div{ :style => 'margin:1%;' }
       = render :partial => "other_unit", :locals => {:sub_unit => sub_sub_unit}
+  - for part in sub_unit.parts
+    .part.brightbottomborder.clear_both
+      -# .check.float_left 90% If the user is a student
+      .float_right
+        = link_to "edit", edit_unit_part_path(part.unit, part)
+        = link_to "delete", part_path(part)
+      -if part.q_and_as? #What is a more compact way to write this?
+        = link_to part.title, part.q_and_as
+      - else
+        = link_to part.title, part

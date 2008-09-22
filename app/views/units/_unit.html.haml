@@ -3,7 +3,7 @@
 - form_for(@unit) do |f|
   = f.hidden_field :parent_id, :value => params[:parent_id]
   = f.hidden_field :position,  :value => params[:position]
-  = f.text_field :unit_type,   :value => params[:unit_type]
+  = f.hidden_field :unit_type, :value => params[:unit_type]
   %br/
   %strong Title
   %p~ f.text_field :title, :style => 'width:100%;'

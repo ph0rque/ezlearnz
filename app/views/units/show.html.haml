@@ -1,8 +1,9 @@
 = error_messages_for :unit
+-# What is a more compact way to write this?
 - if @unit.unit_type == "Lesson" || @unit.unit_type == "Lab"
   = render :partial => "lesson_or_lab"
 - else
-  .brightbottomborder.clear_both
+  .unit.brightbottomborder.clear_both
     .float_right
       = link_to "edit", edit_unit_path(@unit)
       = link_to "delete", @unit, :method => :delete

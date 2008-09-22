@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 7) do
   end
 
   create_table "q_and_as", :force => true do |t|
-    t.integer  "q_and_a_set_id"
+    t.integer  "part_id"
     t.integer  "position"
     t.integer  "score"
     t.text     "question"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(:version => 7) do
     t.integer  "user_q_and_a_set_id"
     t.integer  "q_and_a_id"
     t.boolean  "instructor"
-    t.decimal  "grade"
+    t.integer  "grade",               :limit => 10, :precision => 10, :scale => 0
     t.text     "student_answer"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(:version => 7) do
     t.integer  "user_id"
     t.integer  "unit_id"
     t.boolean  "instructor"
-    t.decimal  "grade"
-    t.decimal  "percent_completed_if_student"
+    t.integer  "grade",                        :limit => 10, :precision => 10, :scale => 0
+    t.integer  "percent_completed_if_student", :limit => 10, :precision => 10, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
