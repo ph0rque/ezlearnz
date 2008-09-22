@@ -1,15 +1,4 @@
 class PartsController < ApplicationController
-  # GET /parts
-  # GET /parts.xml
-  def index
-    @parts = Part.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @parts }
-    end
-  end
-
   # GET /parts/1
   # GET /parts/1.xml
   def show
@@ -24,7 +13,8 @@ class PartsController < ApplicationController
   # GET /parts/new
   # GET /parts/new.xml
   def new
-    @part = Part.new
+    @unit = Unit.find(params[:unit_id])
+    @part = @unit.parts.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +30,8 @@ class PartsController < ApplicationController
   # POST /parts
   # POST /parts.xml
   def create
-    @part = Part.new(params[:part])
+    @unit = Unit.find(params[:unit_id])
+    @part = @unit.parts.build(params[:part])
 
     respond_to do |format|
       if @part.save
@@ -74,6 +65,7 @@ class PartsController < ApplicationController
   # DELETE /parts/1
   # DELETE /parts/1.xml
   def destroy
+    @unit = Unit.find(params[:unit_id])
     @part = Part.find(params[:id])
     @part.destroy
 

@@ -3,12 +3,12 @@
 - form_for(@unit) do |f|
   = f.hidden_field :parent_id, :value => params[:parent_id]
   = f.hidden_field :position,  :value => params[:position]
-  = f.text_field :unit_type,   :value => params[:type]
+  = f.text_field :unit_type,   :value => params[:unit_type]
   %br/
   %strong Title
-  %p~ f.text_field :title, :style => 'width:95%;'
+  %p~ f.text_field :title, :style => 'width:100%;'
   %strong Description
-  %p~ f.text_area :description, :class => 'mceEditor', :style => 'width:95%;'
+  %p~ f.text_area :description, :class => 'mceEditor', :style => 'width:100%;'
   %br.clear_both/
   #middle_column.text_centered
     == #{ @unit.new_record? ? f.submit("Create") : f.submit("Update")} or

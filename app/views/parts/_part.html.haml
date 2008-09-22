@@ -1,0 +1,23 @@
+%h3== #{@part.new_record? ? 'New' : 'Editing'} Part #{@part.position}: #{@part.title}
+= error_messages_for :part
+- form_for(@part) do |f|
+  = f.hidden_field :unit_id,   :value => params[:unit_id]
+  = f.hidden_field :position,  :value => params[:position]
+  = f.hidden_field :part_type, :value => params[:part_type]
+  %br/
+  %strong Title
+  %p~ f.text_field :title, :style => 'width:100%;'
+  %br/
+  #right_column~ f.text_field :grading_weight, :style => 'width:100%;'
+  %strong Grading Weight (1 to 100; leave blank if this part isn't graded)
+  .clear_both
+    %strong Body or Instructions
+  -# determine this according to type
+  %p~ f.text_area :body_or_instructions, :class => 'mceEditor', :style => 'width:100%;'
+  %strong Lecture Media (this is optional)
+  %p~ f.text_area :lecture_media, :style => 'width:100%;'
+  %br.clear_both/
+  #middle_column.text_centered
+    == #{ @part.new_record? ? f.submit("Create") : f.submit("Update")} or
+    = link_to "Cancel"
+    -#, @part.unit why is this nil when part_id is filled in???
