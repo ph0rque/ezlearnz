@@ -19,8 +19,8 @@ class Unit < ActiveRecord::Base
      "Reference Material"]
   end
 
-  def self.allowed_unit_types
-    case self.unit_type
+  def allowed_unit_types
+    case parent.unit_type
       when "Subject"       then unit_types - ["Subject"]
       when "Fragment"      then unit_types - ["Subject", "Fragment"]
       when "Chapter"       then ["Lesson", "Lab"]
@@ -28,7 +28,7 @@ class Unit < ActiveRecord::Base
     end
   end
 
-  def self.allowed_part_types
+  def allowed_part_types
     case self.unit_type
       when "Subject"  then part_types - ["Final Exam"]
       when "Fragment" then part_types
