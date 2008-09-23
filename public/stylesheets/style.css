@@ -1,26 +1,26 @@
 /*note to self -- padding: [top] [right] [bottom] [left]; */
-a                   {text-decoration:none;}
-  a img             {border:none;}
-  a:link            {color:#000;}
-  a:visited         {color:#000;}
-  a:hover           {color:#FF7A00;} 
-  a:active          {color:#000;}
+a                           {text-decoration:none;}
+  a img                     {border:none;}
+  a:link                    {color:#000;}
+  a:visited                 {color:#000;}
+  a:hover                   {color:#FF7A00;} 
+  a:active                  {color:#000;}
 
-.red_border         {border:1px solid red;}
-.bright             {background:#ffec6f;}
-.light_blue         {background:#aaaaff;}
-.clear_both         {clear: both;}
-.clear_right        {clear: right;}
-.clear_left         {clear: left;}
-.centered           {margin: 0 auto;}
-.text_centered      {text-align:center;}
-.absolute           {position:absolute;}
-.relative           {position:relative;}
-.float_left         {float:left;}
-.float_right        {float:right;}
-p                   {margin:0; padding:0;}
-hr                  {border:none; background:silver; height:1px;}
-.brightbottomborder {border-bottom:1px solid #ffec6f;}
-.brighttopborder    {border-top:1px solid #ffec6f;}
-input,textarea      {font:100% 'Lucida Grande','Lucida Sans Unicode',
-                     Lucida,'Trebuchet MS',Arial,sans-serif;}
+.red_border                 {border:1px solid red;}
+.bright                     {background:#ffec6f;}
+.light_blue                 {background:#aaaaff;}
+.clear_both                 {clear: both;}
+.clear_right                {clear: right;}
+.clear_left                 {clear: left;}
+.centered                   {margin: 0 auto;}
+.text_centered              {text-align:center;}
+.absolute                   {position:absolute;}
+.relative                   {position:relative;}
+.float_left                 {float:left;}
+.float_right                {float:right;}
+p                           {margin:0; padding:0;}
+hr                          {border:none; background:silver; height:1px;}
+.brightbottomborder         {border-bottom:1px solid #ffec6f;}
+.brighttopborder            {border-top:1px solid #ffec6f;}
+input, textarea             {font:100% 'Lucida Grande','Lucida Sans Unicode',
+                             Lucida,'Trebuchet MS',Arial,sans-serif;}

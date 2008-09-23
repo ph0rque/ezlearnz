@@ -26,6 +26,7 @@ class QAndAsController < ApplicationController
   # GET /q_and_as/1/edit
   def edit
     @q_and_a = QAndA.find(params[:id])
+    @part = @q_and_a.part
   end
 
   # POST /q_and_as
