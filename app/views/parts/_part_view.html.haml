@@ -1,9 +1,10 @@
-.part.brightbottomborder.clear_both
-  .float_right
-    move
-    = link_to "edit", edit_part_path(part)
-    = link_to "delete", part
-  =link_to "Part #{part.position}: #{part.title}", part
-- if part.lecture_media?
-  .video.light_blue= part.lecture_media
-%p= part.body_or_instructions 
+%div{ :style => 'margin:1%;' }
+  .part.brightbottomborder.clear_both
+    .float_right
+      move
+      = link_to "edit", edit_part_path(part)
+      = link_to "delete", part
+    =link_to "Part #{part.position}: #{part.title}", part
+  - if part.lecture_media?
+    .video.light_blue= part.lecture_media
+  %p= part.body_or_instructions 

@@ -37,7 +37,7 @@ class QAndAsController < ApplicationController
     respond_to do |format|
       if @q_and_a.save
         flash[:notice] = 'QAndA was successfully created.'
-        format.html { redirect_to(@q_and_a) }
+        format.html { redirect_to part_q_and_as_path(@part) }
         format.xml  { render :xml => @q_and_a, :status => :created, :location => @q_and_a }
       else
         format.html { render :action => "new" }
@@ -54,7 +54,7 @@ class QAndAsController < ApplicationController
     respond_to do |format|
       if @q_and_a.update_attributes(params[:q_and_a])
         flash[:notice] = 'QAndA was successfully updated.'
-        format.html { redirect_to(@q_and_a) }
+        format.html { redirect_to part_q_and_as_path(@part) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -71,7 +71,7 @@ class QAndAsController < ApplicationController
     @q_and_a.destroy
 
     respond_to do |format|
-      format.html { redirect_to(@part) }
+      format.html { redirect_to part_q_and_as_path(@part) }
       format.xml  { head :ok }
     end
   end

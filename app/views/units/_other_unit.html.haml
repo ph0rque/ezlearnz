@@ -9,4 +9,5 @@
       = render :partial => "other_unit", :locals => {:sub_unit => sub_sub_unit}
   - unless sub_unit.unit_type == "Lesson" || sub_unit.unit_type == "Lab"
     - for part in sub_unit.parts
-      = render :partial => "parts/compact_part", :locals => {:part => part}
+      %div{ :style => 'margin:1%;' }
+        = render :partial => "parts/compact_part", :locals => {:part => part}

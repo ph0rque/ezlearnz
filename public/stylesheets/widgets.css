@@ -23,6 +23,9 @@
 .wrong_answer        {padding: 0.5em 0; border:1px solid red; background:pink;}
 .score               {padding: 0.5em 0; border:1px solid blue; background:#9999ff;}
 
+/*Other*/
+.offset              {position:relative; bottom:-25px; left:-8%;}
+
 /*Ads*/
 .banner_ad          {float:right; border:1px solid; width:234px; height:60px; text-align:center;}
 .wide_skyscraper_ad {float:right; border:1px solid; height:600px; width:160px;}

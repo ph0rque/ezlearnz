@@ -1,8 +1,7 @@
-.unit.brightbottomborder.clear_both
-  .float_right
-    = link_to "edit", edit_unit_path(@unit)
-    = link_to "delete", @unit, :method => :delete
-  %h2= @unit.title
+.float_right
+  = link_to "edit", edit_unit_path(@unit)
+  = link_to "delete", @unit, :method => :delete
+%h2= @unit.title
 %hr
 %strong Description:
 = @unit.description

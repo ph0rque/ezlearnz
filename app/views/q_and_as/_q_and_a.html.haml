@@ -1,0 +1,22 @@
+%h3== #{@q_and_a.new_record? ? 'New' : 'Editing'} Question and Answer
+= error_messages_for :q_and_a
+- form_for([@part, @q_and_a]) do |f|
+  = f.hidden_field :position, :value => params[:position]
+  %br/
+  .float_right
+    This question is worth how many points?
+    ~ f.text_field :score, :style => "width:20px;"
+  %br/
+  %strong Question
+  %p~ f.text_area :question, :class => 'mceEditor', :style => 'width:100%; height:20%;'
+  %br.clear_both/
+  %p
+    %strong Answer (should be multiple choice, or a number)
+    ~ f.text_field :answer, :style => 'width:20px;'
+  %br/
+  %strong Explanation
+  %p~ f.text_area :explanation, :class => 'mceEditor', :style => 'width:100%; height:20%;'
+  %br.clear_both/
+  #middle_column.text_centered
+    == #{ @q_and_a.new_record? ? f.submit("Create") : f.submit("Update")} or
+    = link_to "Cancel", part_q_and_as_path(@part)
