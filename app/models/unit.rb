@@ -20,7 +20,7 @@ class Unit < ActiveRecord::Base
   end
 
   def allowed_unit_types
-    case parent.unit_type
+    case self.unit_type
       when "Subject"       then unit_types - ["Subject"]
       when "Fragment"      then unit_types - ["Subject", "Fragment"]
       when "Chapter"       then ["Lesson", "Lab"]
