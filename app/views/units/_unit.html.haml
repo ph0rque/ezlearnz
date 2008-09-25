@@ -3,7 +3,10 @@
 - form_for(@unit) do |f|
   = f.hidden_field :parent_id, :value => params[:parent_id]
   = f.hidden_field :position,  :value => params[:position]
-  = f.select       :unit_type, @unit.allowed_unit_types
+  - if @unit.new_record? || !@unit.parent_id?
+    = f.select :unit_type, @unit.unit_types, :default => @unit.unit_type
+  - else
+    = f.select :unit_type, @unit.parent.allowed_unit_types, :default => @unit.unit_type
   %br/
   %strong Title
   %p~ f.text_field :title, :style => 'width:100%;'

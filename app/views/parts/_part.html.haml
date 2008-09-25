@@ -3,7 +3,10 @@
 - form_for(@part) do |f|
   = f.hidden_field :unit_id,   :value => params[:unit_id]
   = f.hidden_field :position,  :value => params[:position]
-  = f.hidden_field :part_type, :value => params[:part_type]
+  - if @part.new_record?
+    = f.select :part_type, @unit.allowed_part_types
+  - else
+    = f.select :part_type, @part.unit.allowed_part_types, :default => @part.part_type
   .float_right
     %strong Grading Weight (1 to 100; leave blank if this part isn't graded)
     ~ f.text_field :grading_weight, :style => 'width:20px;'

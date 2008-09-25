@@ -21,25 +21,24 @@
 #left_column
   %h3 Students
   %hr.bright/
-  Enroll in the subjects that interest you. Learn, track your progress, get better.
+  Enroll in the subjects that interest you. Learn the subjects, track your progress, get better.
   %br/
   %br/
   %strong Subjects I'm Learning
-  .subject
+  .unit
     %italic Coming Soon!
     
 #right_column
   %h3 Course Listing
-  - unless @subjects.empty?
-    %strong Subjects
-    .subject
-      - for fragment in @subjects
-        %hr.bright/
-        = link_to "#{fragment.title}", fragment
-        = link_to "delete", unit_path(fragment), :confirm => 'Are you sure?', :method => :delete
+  .unit
+    - for fragment in @subjects
+      %hr.bright/
+      = link_to "#{fragment.title}", fragment
+      = link_to "delete", unit_path(fragment), :confirm => 'Are you sure?', :method => :delete
+  %br/
   - unless @fragments.empty?
-    %strong Fragments
-    .subject
+    %h3 Fragments
+    .unit
       - for fragment in @fragments
         %hr.bright/
         = link_to "#{fragment.title}", fragment
@@ -52,7 +51,6 @@
   %br/
   %br/
   %strong Subjects I'm Teaching
-  .subject
+  .unit
     Coming Soon!
-  %p= link_to "Create a New Subject", new_unit_path(:unit_type => 'Subject')
-  %p= link_to "Create a New Fragment", new_unit_path
+  %p= link_to "Create a New Subject", new_unit_path
