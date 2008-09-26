@@ -1,17 +1,23 @@
 = error_messages_for :unit
+.float_right
+  = link_to "edit", edit_unit_path(@unit)
+  = link_to "delete", @unit, :method => :delete
+%h2= @unit.title
+= @unit.description
+
 -# What is a more compact way to write this?
 - if @unit.unit_type == "Lesson" || @unit.unit_type == "Lab"
-  = render :partial => "lesson_or_lab"
-- else
-  .float_right
-    = link_to "edit", edit_unit_path(@unit)
-    = link_to "delete", @unit, :method => :delete
-  %h2= @unit.title
+  .text_centered
+    = link_to "create a new part for this #{@unit.unit_type}", new_unit_part_path(@unit)
   %hr/
-  %strong Description:
-  = @unit.description
-  %br
-  %br.clear_both
+  %hr.brightbottomborder/
+  - for part in @unit.parts
+    = render :partial => "parts/part_view", :locals => {:part => part}
+- else
+  .float_right= link_to "create a new part for this #{@unit.unit_type}", new_unit_part_path(@unit)
+  = link_to "create a new sub-unit for this #{@unit.unit_type}", new_unit_unit_path(@unit)
+  %hr/
+  %hr.brightbottomborder/
   - for sub_unit in @unit.sub_units
     = render :partial => "other_unit", :locals => {:sub_unit => sub_unit}
     %br/

@@ -4,8 +4,7 @@ a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q
 small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td
 
-{margin:0; padding:0; border:0; outline:0; font-weight: inherit;
-font-style: inherit; font-size: inherit; font-family: inherit; vertical-align: baseline;}
+{margin:0; padding:0; border:0; outline:0; vertical-align: baseline;}
 
 :focus {outline: 0;}
 body   {line-height:1; color:black; background:white;}
