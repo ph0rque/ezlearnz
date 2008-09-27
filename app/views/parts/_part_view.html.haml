@@ -3,7 +3,7 @@
     .float_right
       move
       = link_to "edit", edit_part_path(part)
-      = link_to "delete", part
+      = link_to "delete", [part.unit, part], :method => :delete
     =link_to "Part #{part.position}: #{part.title}", part
   - if part.lecture_media?
     .video.light_blue= part.lecture_media

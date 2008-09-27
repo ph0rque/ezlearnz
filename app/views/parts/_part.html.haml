@@ -1,7 +1,6 @@
 %h3== #{@part.new_record? ? 'New Part' : 'Editing Part'} #{@part.position}: #{@part.title}
 = error_messages_for :part
-- form_for(@part) do |f|
-  = f.hidden_field :unit_id,   :value => params[:unit_id]
+- form_for([@unit, @part]) do |f|
   = f.hidden_field :position,  :value => params[:position]
   - if @part.new_record?
     = f.select :part_type, @unit.allowed_part_types

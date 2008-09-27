@@ -1,5 +1,5 @@
 .part.brightbottomborder.clear_both
   -# .check.float_left 90% If the user is a student
   .float_right
-    = link_to "delete", part_path(part)
+    = link_to "delete", [part.unit, part], :method => :delete
   = part.q_and_as.empty? ? link_to(part.title, part) : link_to(part.title, part_q_and_as_path(part))

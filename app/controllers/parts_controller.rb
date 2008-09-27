@@ -36,7 +36,7 @@ class PartsController < ApplicationController
     respond_to do |format|
       if @part.save
         flash[:notice] = 'Part was successfully created.'
-        format.html { redirect_to(@part) }
+        format.html { redirect_to(@unit) }
         format.xml  { render :xml => @part, :status => :created, :location => @part }
       else
         format.html { render :action => "new" }
@@ -53,7 +53,7 @@ class PartsController < ApplicationController
     respond_to do |format|
       if @part.update_attributes(params[:part])
         flash[:notice] = 'Part was successfully updated.'
-        format.html { redirect_to(@part) }
+        format.html { redirect_to(@part.unit) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -70,7 +70,7 @@ class PartsController < ApplicationController
     @part.destroy
 
     respond_to do |format|
-      format.html { redirect_to(parts_url) }
+      format.html { redirect_to(@unit) }
       format.xml  { head :ok }
     end
   end
