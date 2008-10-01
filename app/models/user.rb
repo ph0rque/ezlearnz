@@ -21,9 +21,9 @@ class User < ActiveRecord::Base
   attr_accessible :login, :email, :password, :password_confirmation
 
   # Active Resource class for moe_users SSO/Profile service
-  class Session < ActiveResource::Base
-    self.site = "http://localhost:3001"
-  end
+  # class Session < ActiveResource::Base
+  #   self.site = "http://localhost:3001"
+  # end
   
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)

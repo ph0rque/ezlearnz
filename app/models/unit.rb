@@ -30,7 +30,7 @@ class Unit < ActiveRecord::Base
 
   def allowed_part_types
     case self.unit_type
-      when "Subject"  then part_types - ["Final Exam"]
+      when "Subject"  then ["Final Exam"]
       when "Fragment" then part_types
       when "Chapter"  then part_types - ["Final Exam", "Quiz"]
       when "Lesson"   then part_types - ["Final Exam", "Exam"]
