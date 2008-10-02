@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :user_q_and_as
 
   map.resources :users, :has_many => [:user_units]
-  map.resource :sessions
+  map.resource :session
   map.logout '/register', :controller => 'users', :action => 'new'
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
