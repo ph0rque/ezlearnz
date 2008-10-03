@@ -39,6 +39,8 @@ class Unit < ActiveRecord::Base
   end
 
   after_create :populate
+  # after_create :assign_author
+  
   def populate
     case self.unit_type
       when "Subject"
@@ -57,13 +59,14 @@ class Unit < ActiveRecord::Base
                      :title => "Assignment: #{self.title} Report")
     end
   end
-end
 
-  # after_create :determine_author
-  ## Create the join table for user and unit, unless it already exists.
-  # def determine_author
-  #   if self.users.empty? 
-  #     if self.parent? user_unit.create(:instructor =>'true') :
-  #                     user_unit.create(:user_id => current_user.id, :instructor =>'true')
-  #   end
+  # def assign_author
+    # UserUnit.create(:unit_id =>self.id, :user_id => current_user.id, :instructor => 'true')
+    # for part in self.unit.parts
+      # UserPart.create(:part_id => part, :user_unit_id => self.id, :instructor => 'true')
+      # for q_and_a in part.q_and_as
+        # UserQAndA.create(:q_and_a_id => q_and_a, :user_part_id => self.user_part.id, :instructor => 'true')
+      # end
+    # end
   # end
+end

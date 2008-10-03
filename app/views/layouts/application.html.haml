@@ -2,6 +2,7 @@
 %html{ 'xml:lang' => "en" }
   %head
     %title ezLearnz | making learning easy
+    -# More descriptive title here
     <link rel="shortcut icon" href="favicon.ico" />
     = stylesheet_link_tag 'reset'
     = stylesheet_link_tag 'style'
@@ -27,6 +28,7 @@
             = link_to "login", login_path
             |
             = link_to "register", new_user_path
+        -# TODO: breadcrumbs here
       = flash[:notice]
       = yield
       %br.clear_both/
