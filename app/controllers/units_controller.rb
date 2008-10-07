@@ -43,8 +43,7 @@ class UnitsController < ApplicationController
   # POST /units
   # POST /units.xml
   def create
-    @unit = Unit.new(params[:unit])
-
+    @unit = Unit.new(params[:unit], current_user)
     respond_to do |format|
       if @unit.save
         flash[:notice] = 'Unit was successfully created.'
