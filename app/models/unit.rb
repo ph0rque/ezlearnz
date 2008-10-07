@@ -65,15 +65,15 @@ class Unit < ActiveRecord::Base
     end
   end
 
-  #def assign_author
-    if (@current_user) then
-      # UserUnit.create(:unit_id =>self.id, :user_id => @current_user.id, :instructor => 'true')
-    elsif (self.user_id)
-    # for part in self.unit.parts
-      # UserPart.create(:part_id => part, :user_unit_id => self.id, :instructor => 'true')
-      # for q_and_a in part.q_and_as
-        # UserQAndA.create(:q_and_a_id => q_and_a, :user_part_id => self.user_part.id, :instructor => 'true')
-      # end
-    # end
-  #end
+#  def assign_author
+#    if (@current_user)
+#      UserUnit.create(:unit_id =>self.id, :user_id => @current_user.id, :instructor => 'true')
+#    elsif (self.user_id)
+#      for part in self.unit.parts
+#        UserPart.create(:part_id => part, :user_unit_id => self.id, :instructor => 'true')
+#        for q_and_a in part.q_and_as
+#          UserQAndA.create(:q_and_a_id => q_and_a, :user_part_id => self.user_part.id, :instructor => 'true')
+#        end
+#      end
+#   end
 end
