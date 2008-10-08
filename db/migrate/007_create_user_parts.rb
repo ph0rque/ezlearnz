@@ -3,6 +3,7 @@ class CreateUserParts < ActiveRecord::Migration
     create_table :user_parts do |t|
       t.integer :part_id
       t.integer :user_unit_id
+      t.integer :user_id
       t.boolean :instructor
       t.integer :grade
       t.boolean :completed_if_student

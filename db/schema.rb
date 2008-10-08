@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 7) do
   create_table "user_parts", :force => true do |t|
     t.integer  "part_id"
     t.integer  "user_unit_id"
+    t.integer  "user_id"
     t.boolean  "instructor"
     t.integer  "grade"
     t.boolean  "completed_if_student"
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(:version => 7) do
   create_table "user_q_and_as", :force => true do |t|
     t.integer  "user_q_and_a_set_id"
     t.integer  "q_and_a_id"
+    t.integer  "user_id"
     t.boolean  "instructor"
     t.decimal  "grade"
     t.text     "student_answer"

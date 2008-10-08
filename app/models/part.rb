@@ -5,8 +5,14 @@ class Part < ActiveRecord::Base
   validates_presence_of :title, :unit_id
   
   acts_as_list :scope => :unit # This will probably need to be replaced.
-
-  after_create :populate
+  
+  def initialize(params, current_user)
+    super(params)
+    @current_user = current_user
+  end
+  
+  after_create :populate, :assign_author
+  
   def populate
     case self.part_type
       when "Problem Set", "Quiz", "Exam", "Final Exam"
@@ -16,6 +22,13 @@ class Part < ActiveRecord::Base
       when "Reading Assignment", "Writing Assignment", "Discussion", "Presentation",
            "Lecture", "Reference Material"
         #Do nothing for now
+    end
+  end
+
+  def assign_author
+    if (@current_user)
+      UserPart.create(:user_unit_id => self.unit.user_unit.id, :part_id =>self.id,
+                      :user_id => @current_user.id, :instructor => 'true')
     end
   end
 end

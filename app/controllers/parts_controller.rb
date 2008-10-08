@@ -31,7 +31,7 @@ class PartsController < ApplicationController
   # POST /parts.xml
   def create
     @unit = Unit.find(params[:unit_id])
-    @part = @unit.parts.build(params[:part])
+    @part = @unit.parts.build(params[:part], current_user)
 
     respond_to do |format|
       if @part.save
