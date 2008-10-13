@@ -9,8 +9,8 @@ class Unit < ActiveRecord::Base
 
   acts_as_list :scope => :parent unless self.parent.nil? # This will probably need to be replaced.
 
-  def initialize(params, current_user)
-    super(params)
+  def initialize(current_user, *params)
+    super(*params)
     @current_user = current_user
   end
   

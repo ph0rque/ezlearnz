@@ -1,4 +1,6 @@
 class UnitsController < ApplicationController
+  before_filter :login_required, :except => [:index, :show]
+  
   # GET /units
   # GET /units.xml
   def index
@@ -43,7 +45,7 @@ class UnitsController < ApplicationController
   # POST /units
   # POST /units.xml
   def create
-    @unit = Unit.new(params[:unit], current_user)
+    @unit = Unit.new(current_user, params[:unit])
     respond_to do |format|
       if @unit.save
         flash[:notice] = 'Unit was successfully created.'

@@ -33,7 +33,7 @@ class QAndAsController < ApplicationController
   # POST /q_and_as.xml
   def create
     @part = Part.find(params[:part_id])
-    @q_and_a = @part.q_and_as.build(params[:q_and_a], current_user)
+    @q_and_a = @part.q_and_as.build(current_user, params[:q_and_a])
 
     respond_to do |format|
       if @q_and_a.save

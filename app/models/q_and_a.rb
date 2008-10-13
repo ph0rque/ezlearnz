@@ -3,8 +3,8 @@ class QAndA < ActiveRecord::Base
 
   acts_as_list :scope => :part
   
-  def initialize(params, current_user)
-    super(params)
+  def initialize(current_user, *params)
+    super(*params)
     @current_user = current_user
   end
     
