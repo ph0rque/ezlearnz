@@ -14,11 +14,15 @@ class Unit < ActiveRecord::Base
     @current_user = current_user
   end
   
-  def unit_types
+  def create(*args)
+    self.new.update_attributes(*args).save!
+  end
+  
+  def self.unit_types
     ["Subject", "Fragment", "Chapter", "Lesson", "Lab"]
   end
 
-  def part_types
+  def self.part_types
     ["Reading Assignment", "Writing Assignment", "Discussion", "Presentation",
      "Paper", "Problem Set", "Final Exam", "Exam", "Quiz", "Lecture", 
      "Reference Material"]
@@ -48,8 +52,8 @@ class Unit < ActiveRecord::Base
   def populate
     case self.unit_type
       when "Subject"
-        5.times { |i| Unit.create(:unit_type =>"Chapter", :parent_id =>self.id, :title => "Chapter #{i+1}") }
-        Part.create(:part_type =>"Final Exam", :unit_id =>self.id, :title => "#{self.title} Final Exam")
+        5.times { |i| Unit.new.update_attributes(:unit_type =>"Chapter", :parent_id =>self.id, :title => "Chapter #{i+1}").save! }
+        Part.new.update_attributes(:part_type =>"Final Exam", :unit_id =>self.id, :title => "#{self.title} Final Exam").save!
       when "Chapter"
         5.times { |i| Unit.create(:unit_type =>"Lesson", :parent_id => self.id, :title => "Lesson #{i+1}") }
         Unit.create(:unit_type =>"Lab", :parent_id => self.id, :title => "#{self.title} Lab")
