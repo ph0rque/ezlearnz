@@ -16,7 +16,8 @@ class UnitsController < ApplicationController
   # GET /units/1.xml
   def show
     @unit = Unit.find(params[:id])
-
+    @parent = @unit.parent unless @unit.parent.empty?
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @unit }
@@ -26,7 +27,13 @@ class UnitsController < ApplicationController
   # GET /units/new
   # GET /units/new.xml
   def new
-    @unit = Unit.new(current_user)
+    if !params[:parent_id].nil?
+      @parent = Unit.find(params[:parent_id])
+      @unit = @parent.parts.build      
+    else
+      @unit = Unit.new(current_user)
+    end
+      
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @unit }
@@ -45,7 +52,12 @@ class UnitsController < ApplicationController
   # POST /units
   # POST /units.xml
   def create
-    @unit = Unit.new(current_user, params[:unit])
+    if !params[:parent_id].nil?
+      @parent = Unit.find(params[:parent_id])
+      @unit = @parent.parts.build(current_user, params[:unit])
+    else
+      @unit = Unit.new(current_user, params[:unit])
+    end
     respond_to do |format|
       if @unit.save
         flash[:notice] = 'Unit was successfully created.'
