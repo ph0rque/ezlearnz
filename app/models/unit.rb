@@ -14,9 +14,9 @@ class Unit < ActiveRecord::Base
     @current_user = current_user
   end
   
-  def create(*args)
-    self.new.update_attributes(*args).save!
-  end
+  # def create(*args)
+  #   self.new.update_attributes(*args).save!
+  # end
   
   def unit_types
     ["Subject", "Fragment", "Chapter", "Lesson", "Lab"]
@@ -47,24 +47,24 @@ class Unit < ActiveRecord::Base
     end
   end
 
-  after_create :populate, :assign_author
+  after_create :assign_author, :populate
   
   def populate
     case self.unit_type
       when "Subject"
-        5.times { |i| Unit.create(:unit_type =>"Chapter", :parent_id =>self.id, :title => "Chapter #{i+1}") }
+        5.times { |i| Unit.create(:unit_type => "Chapter", :parent_id => self.id, :title => "Chapter #{i+1}") }
         Part.create(:part_type =>"Final Exam", :unit_id =>self.id, :title => "#{self.title} Final Exam")
       when "Chapter"
-        5.times { |i| Unit.create(:unit_type =>"Lesson", :parent_id => self.id, :title => "Lesson #{i+1}") }
-        Unit.create(:unit_type =>"Lab", :parent_id => self.id, :title => "#{self.title} Lab")
-        Part.create(:part_type =>"Exam", :unit_id => self.id, :title => "#{self.title} Chapter Exam")
+        5.times { |i| Unit.create(:unit_type => "Lesson", :parent_id => self.id, :title => "Lesson #{i+1}") }
+        Unit.create(:unit_type => "Lab", :parent_id => self.id, :title => "#{self.title} Lab")
+        Part.create(:part_type => "Exam", :unit_id => self.id, :title => "#{self.title} Chapter Exam")
       when "Lesson"
         4.times { |i| Part.create(:part_type =>"Lecture", :unit_id => self.id, :title => "Part #{i+1}") }
-        Part.create(:part_type =>"Problem Set", :unit_id => self.id, :title => "#{self.title} Problem Set")
+        Part.create(:part_type => "Problem Set", :unit_id => self.id, :title => "#{self.title} Problem Set")
       when "Lab"
-        3.times { |i| Part.create(:part_type =>"Lecture", :unit_id => self.id, :title => "Part #{i+1}") }
-        Part.create(:part_type =>"Writing Assignment", :unit_id => self.id,
-                     :title => "Assignment: #{self.title} Report")
+        3.times { |i| Part.create(:part_type => "Lecture", :unit_id => self.id, :title => "Part #{i+1}") }
+        Part.create(:part_type => "Writing Assignment", :unit_id => self.id,
+                    :title => "Assignment: #{self.title} Report")
     end
   end
 

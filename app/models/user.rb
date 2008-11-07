@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :login, :email, :password, :password_confirmation
     
-  has_many :user_subjects
-  has_many :subjects, :through => :user_subjects
+  has_many :user_units
+  has_many :units, :through => :user_units
   
   validates_presence_of     :login, :email
   validates_presence_of     :password,                   :if => :password_required?

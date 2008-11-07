@@ -16,7 +16,7 @@ class UnitsController < ApplicationController
   # GET /units/1.xml
   def show
     @unit = Unit.find(params[:id])
-    @parent = @unit.parent unless @unit.parent.empty?
+    @parent = @unit.parent unless @unit.parent_id?
     
     respond_to do |format|
       format.html # show.html.erb

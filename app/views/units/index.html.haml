@@ -52,5 +52,11 @@
   %br/
   %strong Subjects I'm Teaching
   .unit
-    Coming Soon!
+    - if !current_user.units.empty?
+      - for unit in current_user.units
+        %hr.bright/
+        = link_to "#{unit.title}", unit
+        = link_to "delete", unit_path(unit), :confirm => 'Are you sure?', :method => :delete
+    - else
+      %small You don't have any subjects you're teaching. Create one by clicking on the link below!
   %p= link_to "Create a New Subject", new_unit_path
