@@ -16,9 +16,9 @@ class Part < ActiveRecord::Base
   def populate
     case self.part_type
       when "Problem Set", "Quiz", "Exam", "Final Exam"
-        5.times { |i| QAndA.create(:part_id  => self.id,
-                                   :question => "Question #{i+1}",
-                                   :answer   => "Answer #{i+1}") }
+        #5.times { |i| QAndA.create(:part_id  => self.id,
+        #                           :question => "Question #{i+1}",
+        #                           :answer   => "Answer #{i+1}") }
       when "Reading Assignment", "Writing Assignment", "Discussion", "Presentation",
            "Lecture", "Reference Material"
         #Do nothing for now

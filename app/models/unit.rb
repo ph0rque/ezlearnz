@@ -1,23 +1,14 @@
 class Unit < ActiveRecord::Base
-  has_many   :sub_units, :class_name => 'Unit', :foreign_key => 'parent_id', :order => 'position',
+  has_many   :sub_units, :class_name => 'Unit', :order => 'position',
              :dependent => :destroy # take this out before opening beta
-  belongs_to :parent,    :class_name => 'Unit', :foreign_key => 'parent_id'
-
+  belongs_to :parent,    :class_name => 'Unit'
+  belongs_to :author, :class_name => 'User'
+  
   has_many   :parts, :order => 'position', :dependent => :destroy
-  has_many   :user_units, :dependent => :destroy
-  has_many   :users, :through => :user_units
+  has_and_belongs_to_many :users # students
 
   acts_as_list :scope => :parent unless self.parent.nil? # This will probably need to be replaced.
 
-  def initialize(current_user, *params)
-    super(*params)
-    @current_user = current_user
-  end
-  
-  # def create(*args)
-  #   self.new.update_attributes(*args).save!
-  # end
-  
   def unit_types
     ["Subject", "Fragment", "Chapter", "Lesson", "Lab"]
   end
@@ -47,17 +38,19 @@ class Unit < ActiveRecord::Base
     end
   end
 
-  after_create :assign_author, :populate
+  after_create :populate
   
   def populate
     case self.unit_type
       when "Subject"
-        5.times { |i| Unit.create(:unit_type => "Chapter", :parent_id => self.id, :title => "Chapter #{i+1}") }
-        Part.create(:part_type =>"Final Exam", :unit_id =>self.id, :title => "#{self.title} Final Exam")
+        5.times { |i| 
+          self.sub_units << Unit.create(:author => self.author, :unit_type => "Chapter", :title => "Chapter #{i+1}") 
+        }
+        self.parts << Part.new(:part_type =>"Final Exam", :title => "#{self.title} Final Exam")
       when "Chapter"
-        5.times { |i| Unit.create(:unit_type => "Lesson", :parent_id => self.id, :title => "Lesson #{i+1}") }
-        Unit.create(:unit_type => "Lab", :parent_id => self.id, :title => "#{self.title} Lab")
-        Part.create(:part_type => "Exam", :unit_id => self.id, :title => "#{self.title} Chapter Exam")
+        #5.times { |i| Unit.create(:unit_type => "Lesson", :parent_id => self.id, :title => "Lesson #{i+1}") }
+        #Unit.create(:unit_type => "Lab", :parent_id => self.id, :title => "#{self.title} Lab")
+        #Part.create(:part_type => "Exam", :unit_id => self.id, :title => "#{self.title} Chapter Exam")
       when "Lesson"
         4.times { |i| Part.create(:part_type =>"Lecture", :unit_id => self.id, :title => "Part #{i+1}") }
         Part.create(:part_type => "Problem Set", :unit_id => self.id, :title => "#{self.title} Problem Set")
@@ -68,7 +61,4 @@ class Unit < ActiveRecord::Base
     end
   end
 
-  def assign_author
-    if (@current_user); UserUnit.create(:unit_id =>self.id, :user_id => @current_user.id, :instructor => 'true'); end
-  end
 end

@@ -52,11 +52,11 @@ class UnitsController < ApplicationController
   # POST /units
   # POST /units.xml
   def create
-    if !params[:parent_id].nil?
+    if params[:parent_id].nil?
+      @unit = Unit.new(current_user, params[:unit])
+    else
       @parent = Unit.find(params[:parent_id])
       @unit = @parent.parts.build(current_user, params[:unit])
-    else
-      @unit = Unit.new(current_user, params[:unit])
     end
     respond_to do |format|
       if @unit.save

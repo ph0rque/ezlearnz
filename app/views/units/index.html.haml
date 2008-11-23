@@ -52,7 +52,7 @@
   %br/
   %strong Subjects I'm Teaching
   .unit
-    - if !current_user.units.empty?
+    - if current_user and !current_user.units.empty?
       - for unit in current_user.units
         %hr.bright/
         = link_to "#{unit.title}", unit

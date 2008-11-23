@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   attr_accessible :login, :email, :password, :password_confirmation
     
   has_many :user_units
-  has_many :units, :through => :user_units
+  has_and_belongs_to_many :units #student
+  
+  has_many :authored_units, :class_name => 'Unit'
   
   validates_presence_of     :login, :email
   validates_presence_of     :password,                   :if => :password_required?
