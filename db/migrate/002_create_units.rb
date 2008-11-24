@@ -1,10 +1,8 @@
 class CreateUnits < ActiveRecord::Migration
   def self.up
     create_table :units do |t|
-      t.integer :parent_id
-      t.integer :position
-      t.string :unit_type
-      t.string :title
+      t.integer :parent_id, :author_id, :position
+      t.string :unit_type, :title
       t.text :description
 
       t.timestamps

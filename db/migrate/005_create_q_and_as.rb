@@ -1,12 +1,8 @@
 class CreateQAndAs < ActiveRecord::Migration
   def self.up
     create_table :q_and_as do |t|
-      t.integer :part_id
-      t.integer :position
-      t.integer :score
-      t.text :question
-      t.text :answer
-      t.text :explanation
+      t.integer  :part_id, :author_id, :position, :potential_score
+      t.text     :question, :answer, :explanation
 
       t.timestamps
     end

@@ -1,12 +1,8 @@
 class CreateUserParts < ActiveRecord::Migration
   def self.up
     create_table :user_parts do |t|
-      t.integer :part_id
-      t.integer :user_unit_id
-      t.integer :user_id
-      t.boolean :instructor
-      t.integer :grade
-      t.boolean :completed_if_student
+      t.integer :part_id, :user_id, :user_unit_id, :grade
+      t.boolean :completed
       t.text :submission_or_notes
 
       t.timestamps
