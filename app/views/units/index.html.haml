@@ -1,14 +1,3 @@
--# nav_bar
-  .login.float_right
-    = link_to "login"
-    |
-    = link_to "register"
-  .breadcrumbs.float_left
-    .plain.float_right
-      Home
-  %br/
-  %br/
-
 %p{ :style => 'font-size:220%; text-align:center; color:#FF7A00' }
   %strong ezLearnz: the next-generation textbook...
 %p{ :style => 'font-size:120%; text-align:center;' }
@@ -52,11 +41,13 @@
   %br/
   %strong Subjects I'm Teaching
   .unit
-    - if current_user and !current_user.units.empty?
-      - for unit in current_user.units
-        %hr.bright/
-        = link_to "#{unit.title}", unit
-        = link_to "delete", unit_path(unit), :confirm => 'Are you sure?', :method => :delete
+    - if current_user && !current_user.authored_units.empty?
+      - for unit in current_user.authored_units
+        - unless !unit.parent.nil? && unit.parent.author_id == current_user.id
+          %hr.bright/
+          = link_to "#{unit.title}", unit
+          = link_to "delete", unit_path(unit), :confirm => 'Are you sure?', :method => :delete
     - else
       %small You don't have any subjects you're teaching. Create one by clicking on the link below!
+  %br/
   %p= link_to "Create a New Subject", new_unit_path

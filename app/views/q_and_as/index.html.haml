@@ -10,7 +10,7 @@
       move
       =link_to "Edit", edit_part_q_and_a_path(@part, q_and_a)
       =link_to "Delete", [@part, q_and_a], :method => :delete
-    == Q&A #{q_and_a.position} (Worth #{q_and_a.score} Points)
+    == Q&A #{q_and_a.position} (Worth #{q_and_a.potential_score} Points)
   %br/
   %p
     %strong Question:

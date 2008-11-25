@@ -3,6 +3,7 @@
 - form_for(@unit) do |f|
   = f.hidden_field :parent_id, :value => params[:parent_id]
   = f.hidden_field :position,  :value => params[:position]
+  = f.hidden_field :author_id, :value => current_user.id
   - if @unit.new_record? || !@unit.parent_id?
     = f.select :unit_type, @unit.unit_types, :default => @unit.unit_type
   - else

@@ -16,7 +16,7 @@ class UnitsController < ApplicationController
   # GET /units/1.xml
   def show
     @unit = Unit.find(params[:id])
-    @parent = @unit.parent unless @unit.parent_id?
+    @parent = @unit.parent unless @unit.parent_id.nil?
     
     respond_to do |format|
       format.html # show.html.erb
@@ -27,11 +27,11 @@ class UnitsController < ApplicationController
   # GET /units/new
   # GET /units/new.xml
   def new
-    if !params[:parent_id].nil?
-      @parent = Unit.find(params[:parent_id])
-      @unit = @parent.parts.build      
+    if params[:parent_id].nil?
+      @unit = Unit.new 
     else
-      @unit = Unit.new(current_user)
+      @parent = Unit.find(params[:parent_id])
+      @unit = @parent.sub_units.build
     end
       
     respond_to do |format|
@@ -53,10 +53,10 @@ class UnitsController < ApplicationController
   # POST /units.xml
   def create
     if params[:parent_id].nil?
-      @unit = Unit.new(current_user, params[:unit])
+      @unit = Unit.new(params[:unit])
     else
       @parent = Unit.find(params[:parent_id])
-      @unit = @parent.parts.build(current_user, params[:unit])
+      @unit = @parent.sub_units.build(params[:unit])
     end
     respond_to do |format|
       if @unit.save

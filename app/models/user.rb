@@ -2,11 +2,12 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :login, :email, :password, :password_confirmation
-    
-  has_many :user_units
-  has_and_belongs_to_many :units #student
   
-  has_many :authored_units, :class_name => 'Unit'
+  has_many :user_units, :dependent => :destroy
+  has_many :units, :through => :user_units
+  has_many :authored_units,    :class_name => 'Unit', :foreign_key => 'author_id'
+  has_many :authored_parts,    :class_name => 'Unit', :foreign_key => 'author_id'
+  has_many :authored_q_and_as, :class_name => 'Unit', :foreign_key => 'author_id'
   
   validates_presence_of     :login, :email
   validates_presence_of     :password,                   :if => :password_required?

@@ -25,6 +25,7 @@ class PartsController < ApplicationController
   # GET /parts/1/edit
   def edit
     @part = Part.find(params[:id])
+    @unit = @part.unit
   end
 
   # POST /parts

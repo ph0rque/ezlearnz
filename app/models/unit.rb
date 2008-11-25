@@ -1,13 +1,15 @@
 class Unit < ActiveRecord::Base
-  has_many   :sub_units, :class_name => 'Unit', :order => 'position',
-             :dependent => :destroy # take this out before opening beta
-  belongs_to :parent,    :class_name => 'Unit'
-  belongs_to :author,    :class_name => 'User'
+  has_many   :sub_units, :class_name => 'Unit', :foreign_key => 'parent_id', :order => 'position',
+             :dependent => :destroy # TODO: take this out before opening beta
+  belongs_to :parent,    :class_name => 'Unit', :foreign_key => 'parent_id'
+  belongs_to :author,    :class_name => 'User', :foreign_key => 'author_id'
   
   has_many   :parts, :order => 'position', :dependent => :destroy
-  has_and_belongs_to_many :users # students
+  has_many   :user_units, :dependent => :destroy
+  has_many   :users, :through => :user_units
 
-  acts_as_list :scope => :parent unless self.parent.nil? # This will probably need to be replaced.
+
+  acts_as_list :scope => :parent unless self.parent.nil? # TODO: this will probably need to be replaced.
 
   def unit_types
     ["Subject", "Fragment", "Chapter", "Lesson", "Lab"]
@@ -42,19 +44,19 @@ class Unit < ActiveRecord::Base
   def populate
     case self.unit_type
       when "Subject"
-        5.times { |i| self.sub_units << units.create(:author => self.author, :unit_type => "Chapter", :title => "Chapter #{i+1}") }
-        self.parts << Part.new(:part_type =>"Final Exam", :title => "#{self.title} Final Exam")
+        5.times { |i| self.sub_units << Unit.create(:author => self.author, :unit_type => "Chapter", :title => "Chapter #{i+1}") }
+        self.parts << Part.create(:author => self.author, :part_type =>"Final Exam", :title => "#{self.title} Final Exam")
       when "Chapter"
-      #  5.times { |i| Unit.create(:unit_type => "Lesson", :parent_id => self.id, :title => "Lesson #{i+1}") }
-      #  Unit.create(:unit_type => "Lab", :parent_id => self.id, :title => "#{self.title} Lab")
-      #  Part.create(:part_type => "Exam", :unit_id => self.id, :title => "#{self.title} Chapter Exam")
+        5.times { |i| self.sub_units << Unit.create(:author => self.author, :unit_type => "Lesson", :title => "Lesson #{i+1}") }
+        self.sub_units << Unit.create(:author => self.author, :unit_type => "Lab", :title => "#{self.title} Lab") 
+        self.parts << Part.create(:author => self.author, :part_type =>"Exam", :title => "#{self.title} Exam")
       when "Lesson"
-        4.times { |i| Part.create(:part_type =>"Lecture", :unit_id => self.id, :title => "Part #{i+1}") }
-        Part.create(:part_type => "Problem Set", :unit_id => self.id, :title => "#{self.title} Problem Set")
+        4.times { |i| self.parts << Part.create(:author => self.author, :part_type => "Lecture", :title => "Part #{i+1}") }
+        self.parts << Part.create(:author => self.author, :part_type =>"Final Exam", :title => "#{self.title} Problem Set")
       when "Lab"
-        3.times { |i| Part.create(:part_type => "Lecture", :unit_id => self.id, :title => "Part #{i+1}") }
-        Part.create(:part_type => "Writing Assignment", :unit_id => self.id,
-                    :title => "Assignment: #{self.title} Report")
+        3.times { |i| self.parts << Part.create(:author => self.author, :part_type => "Lecture", :title => "Part #{i+1}") }
+        self.parts << Part.create(:author => self.author, :part_type =>"Writing Assignment",
+                                  :title => "Assignment: #{self.title} Report")
     end
   end
 
