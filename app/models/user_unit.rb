@@ -5,4 +5,9 @@ class UserUnit < ActiveRecord::Base
   belongs_to :unit
 
   has_many :user_parts, :dependent => :destroy
+  
+  def enroll(unit, user)
+    self.create(:unit_id => unit, :user_id => user, :completed => false)
+  end
+  
 end

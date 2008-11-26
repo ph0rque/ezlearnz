@@ -20,10 +20,12 @@
 #right_column
   %h3 Course Listing
   .unit
-    - for fragment in @subjects
+    - for subject in @subjects
       %hr.bright/
-      = link_to "#{fragment.title}", fragment
-      = link_to "delete", unit_path(fragment), :confirm => 'Are you sure?', :method => :delete
+      .float_right
+        = link_to "enroll", :method => :enroll(subject.id, current_user.id)
+        -# , user_unit_path(:unit_id => subject.id, :user_id => current_user.id), :method => :create
+      = link_to "#{subject.title}", subject
   %br/
   - unless @fragments.empty?
     %h3 Fragments
@@ -31,7 +33,6 @@
       - for fragment in @fragments
         %hr.bright/
         = link_to "#{fragment.title}", fragment
-        = link_to "delete", unit_path(fragment), :confirm => 'Are you sure?', :method => :delete
       
 #middle_column
   %h3 Teachers
