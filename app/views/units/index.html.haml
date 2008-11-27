@@ -23,8 +23,7 @@
     - for subject in @subjects
       %hr.bright/
       .float_right
-        = link_to "enroll", :method => :enroll(subject.id, current_user.id)
-        -# , user_unit_path(:unit_id => subject.id, :user_id => current_user.id), :method => :create
+        = link_to "enroll", user_user_units_path(current_user), :method => :post
       = link_to "#{subject.title}", subject
   %br/
   - unless @fragments.empty?
