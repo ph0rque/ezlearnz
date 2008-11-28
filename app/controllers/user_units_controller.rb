@@ -6,13 +6,13 @@ class UserUnitsController < ApplicationController
     @user_unit = UserUnit.new(params[:user_unit])
 
     respond_to do |format|
-      format.html { redirect_to(units_path) }
       if @user_unit.save
         flash[:notice] = 'UserUnit was successfully created.'
         format.xml  { render :xml => @user_unit, :status => :created, :location => @user_unit }
       else
         format.xml  { render :xml => @user_unit.errors, :status => :unprocessable_entity }
       end
+    format.html { redirect_to(units_path) }
     end
   end
 
@@ -22,13 +22,13 @@ class UserUnitsController < ApplicationController
     @user_unit = UserUnit.find(params[:id])
 
     respond_to do |format|
-      format.html { redirect_to(units_path) }
       if @user_unit.update_attributes(params[:user_unit])
         flash[:notice] = 'UserUnit was successfully updated.'
         format.xml  { head :ok }
       else
         format.xml  { render :xml => @user_unit.errors, :status => :unprocessable_entity }
       end
+      format.html { redirect_to(units_path) }
     end
   end
 
