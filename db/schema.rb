@@ -13,20 +13,22 @@ ActiveRecord::Schema.define(:version => 7) do
 
   create_table "parts", :force => true do |t|
     t.string   "title"
-    t.integer  "unit_id"
+    t.string   "part_type"
     t.text     "body_or_instructions"
     t.text     "lecture_media"
+    t.integer  "author_id"
+    t.integer  "unit_id"
     t.integer  "position"
     t.integer  "grading_weight"
-    t.string   "part_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "q_and_as", :force => true do |t|
     t.integer  "part_id"
+    t.integer  "author_id"
     t.integer  "position"
-    t.integer  "score"
+    t.integer  "potential_score"
     t.text     "question"
     t.text     "answer"
     t.text     "explanation"
@@ -36,6 +38,7 @@ ActiveRecord::Schema.define(:version => 7) do
 
   create_table "units", :force => true do |t|
     t.integer  "parent_id"
+    t.integer  "author_id"
     t.integer  "position"
     t.string   "unit_type"
     t.string   "title"
@@ -46,11 +49,10 @@ ActiveRecord::Schema.define(:version => 7) do
 
   create_table "user_parts", :force => true do |t|
     t.integer  "part_id"
-    t.integer  "user_unit_id"
     t.integer  "user_id"
-    t.boolean  "instructor"
+    t.integer  "user_unit_id"
     t.integer  "grade"
-    t.boolean  "completed_if_student"
+    t.boolean  "completed"
     t.text     "submission_or_notes"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -60,7 +62,6 @@ ActiveRecord::Schema.define(:version => 7) do
     t.integer  "user_q_and_a_set_id"
     t.integer  "q_and_a_id"
     t.integer  "user_id"
-    t.boolean  "instructor"
     t.integer  "grade",               :limit => 10, :precision => 10, :scale => 0
     t.text     "student_answer"
     t.datetime "created_at"
@@ -71,9 +72,8 @@ ActiveRecord::Schema.define(:version => 7) do
     t.integer  "parent_id"
     t.integer  "user_id"
     t.integer  "unit_id"
-    t.boolean  "instructor"
-    t.integer  "grade",                        :limit => 10, :precision => 10, :scale => 0
-    t.integer  "percent_completed_if_student", :limit => 10, :precision => 10, :scale => 0
+    t.integer  "grade",             :limit => 10, :precision => 10, :scale => 0
+    t.integer  "percent_completed", :limit => 10, :precision => 10, :scale => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

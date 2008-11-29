@@ -3,10 +3,11 @@ class UserUnitsController < ApplicationController
   # POST /user_units
   # POST /user_units.xml
   def create
-    @user_unit = UserUnit.new(params[:user_unit])
+    @unit = Unit.find(params[:unit_id]) # TODO AR not found
+    @user.units << @unit
 
     respond_to do |format|
-      if @user_unit.save
+      if @user.save
         flash[:notice] = 'UserUnit was successfully created.'
         format.xml  { render :xml => @user_unit, :status => :created, :location => @user_unit }
       else

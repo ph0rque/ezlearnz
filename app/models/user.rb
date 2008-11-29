@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :user_units, :dependent => :destroy
   has_many :units, :through => :user_units
   has_many :authored_units,    :class_name => 'Unit', :foreign_key => 'author_id'
+  #has_many :authored_subjects, :class_name => 'Unit', :foreign_key => 'author_id' #TODO add a condition for subjectness
   has_many :authored_parts,    :class_name => 'Unit', :foreign_key => 'author_id'
   has_many :authored_q_and_as, :class_name => 'Unit', :foreign_key => 'author_id'
   

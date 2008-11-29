@@ -23,4 +23,13 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => 'ae67e8876cffba067ec5463cd86e8616'
   include AuthenticatedSystem
+  
+  before_filter :retrieve_current_user
+  
+  protected
+  
+  def retrieve_current_user
+    @user = current_user
+  end
+  
 end
