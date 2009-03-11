@@ -15,7 +15,15 @@
   %br/
   %strong Subjects I'm Learning
   .unit
-    %italic Coming Soon!
+    - if current_user && !current_user.units.empty?
+      - for subject in current_user.units
+        - unless !subject.parent.nil?
+          %hr.bright/
+          .float_right
+            -# = link_to "unenroll", unit_user_unit_path(subject), :confirm => 'Are you sure?', :method => :delete
+          = link_to "#{subject.title}", subject
+    - else
+      %small You're not learning any subjects. Start by enrolling in the subject that interests you!
     
 #right_column
   %h3 Course Listing
